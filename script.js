@@ -1,351 +1,380 @@
-// Emergency contacts database for Bangladesh
+// Emergency Database
 const emergencyDatabase = {
     dhaka: {
         name: "Dhaka",
-        hospitals: [
-            {
-                name: "Square Hospital Ltd.",
-                address: "18/F, West Panthapath, Dhaka",
-                phone: "01713455667",
-                emergency: "01713455666"
-            },
-            {
-                name: "United Hospital Ltd.",
-                address: "Plot 15, Road 71, Gulshan, Dhaka",
-                phone: "01755567890",
-                emergency: "01755567891"
-            },
-            {
-                name: "Apollo Hospitals Dhaka",
-                address: "Plot 81, Block E, Bashundhara R/A, Dhaka",
-                phone: "01744455667",
-                emergency: "01744455668"
-            },
-            {
-                name: "Dhaka Medical College Hospital",
-                address: "Secretariat Road, Dhaka",
-                phone: "01769000333",
-                emergency: "01769000334"
-            },
-            {
-                name: "Birdem Hospital",
-                address: "Shahbagh, Dhaka",
-                phone: "01711445566",
-                emergency: "01711445567"
-            }
+        police: [
+            { name: "Dhaka Metropolitan Police", number: "01713455660", area: "Headquarters" },
+            { name: "Ramna Police Station", number: "01713455661", area: "Ramna" },
+            { name: "Gulshan Police Station", number: "01713455662", area: "Gulshan" },
+            { name: "Banani Police Station", number: "01713455663", area: "Banani" },
+            { name: "Uttara Police Station", number: "01713455664", area: "Uttara" }
         ],
-        services: [
-            { name: "Dhaka Police Control Room", number: "01713455660" },
-            { name: "Dhaka Fire Service", number: "01769000111" },
-            { name: "Dhaka Ambulance Service", number: "01769000222" },
-            { name: "Women Helpline", number: "01769000333" },
-            { name: "Child Helpline", number: "01769000444" }
+        fire: [
+            { name: "Dhaka Fire Service HQ", number: "01769000111", area: "Headquarters" },
+            { name: "Tejgaon Fire Station", number: "01769000112", area: "Tejgaon" },
+            { name: "Gulshan Fire Station", number: "01769000113", area: "Gulshan" },
+            { name: "Motijheel Fire Station", number: "01769000114", area: "Motijheel" }
+        ],
+        hospital: [
+            { name: "Square Hospital", number: "01713455667", address: "Panthapath", emergency: "01713455666" },
+            { name: "United Hospital", number: "01755567890", address: "Gulshan", emergency: "01755567891" },
+            { name: "Apollo Hospital", number: "01744455667", address: "Bashundhara", emergency: "01744455668" },
+            { name: "Dhaka Medical College", number: "01769000333", address: "Secretariat Road", emergency: "01769000334" }
+        ],
+        ambulance: [
+            { name: "Dhaka Ambulance Service", number: "01769000222", area: "All Dhaka" },
+            { name: "Red Crescent Ambulance", number: "01711555665", area: "Emergency Service" },
+            { name: "Private Ambulance Service", number: "01711555666", area: "24/7 Service" }
         ]
     },
     chittagong: {
         name: "Chittagong",
-        hospitals: [
-            {
-                name: "Chittagong Medical College Hospital",
-                address: "K.B. Fazlul Kader Road, Chittagong",
-                phone: "01711555667",
-                emergency: "01711555668"
-            },
-            {
-                name: "CSCR Hospital",
-                address: "GEC Circle, Chittagong",
-                phone: "01722667788",
-                emergency: "01722667789"
-            },
-            {
-                name: "Parkview Hospital",
-                address: "2/J, CDA Avenue, Chittagong",
-                phone: "01733778899",
-                emergency: "01733778890"
-            },
-            {
-                name: "Max Hospital & Diagnostic",
-                address: "1020, O.R. Nizam Road, Chittagong",
-                phone: "01744889900",
-                emergency: "01744889901"
-            }
+        police: [
+            { name: "Chittagong Metropolitan Police", number: "01711555660", area: "Headquarters" },
+            { name: "Kotwali Police Station", number: "01711555661", area: "Kotwali" },
+            { name: "Panchlaish Police Station", number: "01711555662", area: "Panchlaish" }
         ],
-        services: [
-            { name: "Chittagong Police Control", number: "01711555660" },
-            { name: "Chittagong Fire Service", number: "01711555661" },
-            { name: "Port Ambulance Service", number: "01711555662" }
+        fire: [
+            { name: "Chittagong Fire Service", number: "01711555661", area: "Headquarters" },
+            { name: "Agrabad Fire Station", number: "01711555662", area: "Agrabad" }
+        ],
+        hospital: [
+            { name: "Chittagong Medical College", number: "01711555667", address: "K.B. Fazlul Kader Road", emergency: "01711555668" },
+            { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle", emergency: "01722667789" }
+        ],
+        ambulance: [
+            { name: "Chittagong Ambulance", number: "01711555662", area: "City Service" },
+            { name: "Port Ambulance", number: "01711555663", area: "Port Area" }
         ]
     },
     rajshahi: {
         name: "Rajshahi",
-        hospitals: [
-            {
-                name: "Rajshahi Medical College Hospital",
-                address: "Laxmipur, Rajshahi",
-                phone: "01711555999",
-                emergency: "01711555998"
-            },
-            {
-                name: "Islami Bank Hospital",
-                address: "Kazihata, Rajshahi",
-                phone: "01711555997",
-                emergency: "01711555996"
-            },
-            {
-                name: "City Hospital",
-                address: "Shaheb Bazar, Rajshahi",
-                phone: "01711555995",
-                emergency: "01711555994"
-            }
+        police: [
+            { name: "Rajshahi Metropolitan Police", number: "01711555991", area: "Headquarters" },
+            { name: "Boalia Police Station", number: "01711555992", area: "Boalia" }
         ],
-        services: [
-            { name: "Rajshahi Police", number: "01711555991" },
-            { name: "Rajshahi Fire", number: "01711555992" },
-            { name: "Rajshahi Ambulance", number: "01711555993" }
+        fire: [
+            { name: "Rajshahi Fire Service", number: "01711555992", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Rajshahi Medical College", number: "01711555999", address: "Laxmipur", emergency: "01711555998" },
+            { name: "Islami Bank Hospital", number: "01711555997", address: "Kazihata", emergency: "01711555996" }
+        ],
+        ambulance: [
+            { name: "Rajshahi Ambulance", number: "01711555993", area: "City Service" }
         ]
     },
     khulna: {
         name: "Khulna",
-        hospitals: [
-            {
-                name: "Khulna Medical College Hospital",
-                address: "Sonadanga, Khulna",
-                phone: "01711555888",
-                emergency: "01711555887"
-            },
-            {
-                name: "Gazi Medical College Hospital",
-                address: "Moylapota, Khulna",
-                phone: "01711555886",
-                emergency: "01711555885"
-            },
-            {
-                name: "City Medical College Hospital",
-                address: "Khulna City Corporation, Khulna",
-                phone: "01711555884",
-                emergency: "01711555883"
-            }
+        police: [
+            { name: "Khulna Metropolitan Police", number: "01711555882", area: "Headquarters" }
         ],
-        services: [
-            { name: "Khulna Police", number: "01711555882" },
-            { name: "Khulna Fire", number: "01711555881" },
-            { name: "Khulna Ambulance", number: "01711555880" }
+        fire: [
+            { name: "Khulna Fire Service", number: "01711555881", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Khulna Medical College", number: "01711555888", address: "Sonadanga", emergency: "01711555887" },
+            { name: "Gazi Medical College", number: "01711555886", address: "Moylapota", emergency: "01711555885" }
+        ],
+        ambulance: [
+            { name: "Khulna Ambulance", number: "01711555880", area: "City Service" }
         ]
     },
     barisal: {
         name: "Barisal",
-        hospitals: [
-            {
-                name: "Sher-e-Bangla Medical College Hospital",
-                address: "Barisal Sadar, Barisal",
-                phone: "01711555777",
-                emergency: "01711555776"
-            },
-            {
-                name: "Barisal General Hospital",
-                address: "Sadar Road, Barisal",
-                phone: "01711555775",
-                emergency: "01711555774"
-            }
+        police: [
+            { name: "Barisal Metropolitan Police", number: "01711555773", area: "Headquarters" }
         ],
-        services: [
-            { name: "Barisal Police", number: "01711555773" },
-            { name: "Barisal Fire", number: "01711555772" },
-            { name: "Barisal Ambulance", number: "01711555771" }
+        fire: [
+            { name: "Barisal Fire Service", number: "01711555772", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Sher-e-Bangla Medical College", number: "01711555777", address: "Barisal Sadar", emergency: "01711555776" },
+            { name: "Barisal General Hospital", number: "01711555775", address: "Sadar Road", emergency: "01711555774" }
+        ],
+        ambulance: [
+            { name: "Barisal Ambulance", number: "01711555771", area: "City Service" }
         ]
     },
     sylhet: {
         name: "Sylhet",
-        hospitals: [
-            {
-                name: "Sylhet MAG Osmani Medical College",
-                address: "Mirboxtula, Sylhet",
-                phone: "01711555666",
-                emergency: "01711555665"
-            },
-            {
-                name: "North East Medical College",
-                address: "Sylhet City Corporation, Sylhet",
-                phone: "01711555664",
-                emergency: "01711555663"
-            },
-            {
-                name: "Jalalabad Ragib-Rabeya Medical College",
-                email: "01711555662",
-                emergency: "01711555661"
-            }
+        police: [
+            { name: "Sylhet Metropolitan Police", number: "01711555660", area: "Headquarters" }
         ],
-        services: [
-            { name: "Sylhet Police", number: "01711555660" },
-            { name: "Sylhet Fire", number: "01711555659" },
-            { name: "Sylhet Ambulance", number: "01711555658" }
+        fire: [
+            { name: "Sylhet Fire Service", number: "01711555659", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula", emergency: "01711555665" },
+            { name: "North East Medical College", number: "01711555664", address: "Sylhet City", emergency: "01711555663" }
+        ],
+        ambulance: [
+            { name: "Sylhet Ambulance", number: "01711555658", area: "City Service" }
         ]
     },
     rangpur: {
         name: "Rangpur",
-        hospitals: [
-            {
-                name: "Rangpur Medical College Hospital",
-                address: "Medical Road, Rangpur",
-                phone: "01711555555",
-                emergency: "01711555554"
-            },
-            {
-                name: "Prime Hospital",
-                address: "Station Road, Rangpur",
-                phone: "01711555553",
-                emergency: "01711555552"
-            }
+        police: [
+            { name: "Rangpur Metropolitan Police", number: "01711555551", area: "Headquarters" }
         ],
-        services: [
-            { name: "Rangpur Police", number: "01711555551" },
-            { name: "Rangpur Fire", number: "01711555550" },
-            { name: "Rangpur Ambulance", number: "01711555549" }
+        fire: [
+            { name: "Rangpur Fire Service", number: "01711555550", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Rangpur Medical College", number: "01711555555", address: "Medical Road", emergency: "01711555554" },
+            { name: "Prime Hospital", number: "01711555553", address: "Station Road", emergency: "01711555552" }
+        ],
+        ambulance: [
+            { name: "Rangpur Ambulance", number: "01711555549", area: "City Service" }
         ]
     },
     mymensingh: {
         name: "Mymensingh",
-        hospitals: [
-            {
-                name: "Mymensingh Medical College Hospital",
-                address: "Medical College Road, Mymensingh",
-                phone: "01711555444",
-                emergency: "01711555443"
-            },
-            {
-                name: "Community Based Medical College",
-                address: "Mymensingh City, Mymensingh",
-                phone: "01711555442",
-                emergency: "01711555441"
-            }
+        police: [
+            { name: "Mymensingh Metropolitan Police", number: "01711555440", area: "Headquarters" }
         ],
-        services: [
-            { name: "Mymensingh Police", number: "01711555440" },
-            { name: "Mymensingh Fire", number: "01711555439" },
-            { name: "Mymensingh Ambulance", number: "01711555438" }
+        fire: [
+            { name: "Mymensingh Fire Service", number: "01711555439", area: "Headquarters" }
+        ],
+        hospital: [
+            { name: "Mymensingh Medical College", number: "01711555444", address: "Medical College Road", emergency: "01711555443" },
+            { name: "Community Based Medical College", number: "01711555442", address: "Mymensingh City", emergency: "01711555441" }
+        ],
+        ambulance: [
+            { name: "Mymensingh Ambulance", number: "01711555438", area: "City Service" }
         ]
     }
 };
 
-// Function to load emergency contacts based on selected city
-function loadEmergencyContacts() {
-    const citySelect = document.getElementById('city');
-    const selectedCity = citySelect.value;
-    const contactsContainer = document.getElementById('emergency-contacts');
-    const selectedCityName = document.getElementById('selected-city-name');
-    const hospitalList = document.getElementById('hospital-list');
-    const otherServices = document.getElementById('other-services');
+// State Management
+let selectedCity = null;
+let selectedService = null;
 
-    if (!selectedCity) {
-        contactsContainer.style.display = 'none';
-        return;
-    }
-
-    // Show loading state
-    contactsContainer.style.display = 'block';
-    hospitalList.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> Loading hospitals...</div>';
+// Initialize Theme
+document.addEventListener('DOMContentLoaded', function() {
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.className = savedTheme;
+    document.getElementById('theme-switch').checked = savedTheme === 'light';
     
-    // Get city data
+    // Add city button listeners
+    document.querySelectorAll('.city-btn').forEach(btn => {
+        btn.addEventListener('click', () => selectCity(btn.dataset.city));
+    });
+});
+
+// Theme Toggle
+document.getElementById('theme-switch').addEventListener('change', function(e) {
+    const theme = e.target.checked ? 'light' : 'dark';
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
+});
+
+// Select City
+function selectCity(city) {
+    selectedCity = city;
+    const cityData = emergencyDatabase[city];
+    
+    // Update display
+    document.getElementById('selected-city-display').textContent = cityData.name;
+    
+    // Hide city selector with animation
+    document.querySelector('.city-selector').style.animation = 'slideUp 0.3s reverse';
+    setTimeout(() => {
+        document.querySelector('.city-selector').style.display = 'none';
+        // Show service categories
+        document.getElementById('service-categories').style.display = 'block';
+        document.getElementById('service-categories').style.animation = 'slideUp 0.5s ease-out';
+    }, 300);
+    
+    // Add service button listeners
+    document.querySelectorAll('.service-btn').forEach(btn => {
+        btn.removeEventListener('click', serviceClickHandler);
+        btn.addEventListener('click', serviceClickHandler);
+    });
+}
+
+// Service Click Handler
+function serviceClickHandler(e) {
+    const service = e.currentTarget.dataset.service;
+    selectService(service);
+}
+
+// Select Service
+function selectService(service) {
+    selectedService = service;
     const cityData = emergencyDatabase[selectedCity];
     
-    if (!cityData) {
-        hospitalList.innerHTML = '<div class="error-message">No data available for this city</div>';
-        return;
-    }
-
-    // Update city name
-    selectedCityName.textContent = cityData.name;
-
-    // Load hospitals
-    let hospitalsHTML = '';
-    cityData.hospitals.forEach(hospital => {
-        hospitalsHTML += `
-            <div class="hospital-card">
-                <h4>${hospital.name}</h4>
-                <p><i class="fas fa-map-marker-alt"></i> ${hospital.address}</p>
-                <div class="hospital-phone">
-                    <a href="tel:${hospital.phone}" class="call-btn">
-                        <i class="fas fa-phone"></i> Call
-                    </a>
-                    <span>${hospital.phone}</span>
-                </div>
-                ${hospital.emergency ? `
-                <div class="hospital-phone" style="margin-top: 10px;">
-                    <a href="tel:${hospital.emergency}" class="call-btn" style="background: #ff6b6b;">
-                        <i class="fas fa-ambulance"></i> Emergency
-                    </a>
-                    <span>${hospital.emergency}</span>
-                </div>
-                ` : ''}
-            </div>
-        `;
-    });
-    hospitalList.innerHTML = hospitalsHTML;
-
-    // Load other services
-    let servicesHTML = '';
-    cityData.services.forEach(service => {
-        servicesHTML += `
-            <div class="service-card">
-                <div class="service-info">
-                    <h4>${service.name}</h4>
-                    <p>${service.number}</p>
-                </div>
-                <a href="tel:${service.number}" class="call-btn">
-                    <i class="fas fa-phone"></i> Call
-                </a>
-            </div>
-        `;
-    });
-    otherServices.innerHTML = servicesHTML;
-
-    // Scroll to contacts
-    contactsContainer.scrollIntoView({ behavior: 'smooth' });
+    // Update results header
+    const serviceIcons = {
+        police: 'fa-shield-alt',
+        fire: 'fa-fire-extinguisher',
+        hospital: 'fa-hospital',
+        ambulance: 'fa-ambulance'
+    };
+    
+    const serviceNames = {
+        police: 'Police Stations',
+        fire: 'Fire Service Stations',
+        hospital: 'Hospitals',
+        ambulance: 'Ambulance Services'
+    };
+    
+    document.getElementById('result-service-icon').className = `fas ${serviceIcons[service]}`;
+    document.getElementById('result-service-name').textContent = serviceNames[service];
+    document.getElementById('result-city-name').textContent = cityData.name;
+    
+    // Hide service categories
+    document.getElementById('service-categories').style.animation = 'fadeIn 0.3s reverse';
+    setTimeout(() => {
+        document.getElementById('service-categories').style.display = 'none';
+        
+        // Load and show results
+        loadResults(service);
+        document.getElementById('results-container').style.display = 'block';
+        document.getElementById('results-container').style.animation = 'scaleIn 0.5s ease-out';
+    }, 300);
 }
 
-// Add event listener for city selection
-document.getElementById('city').addEventListener('change', function() {
-    if (this.value) {
-        // Optional: Add analytics or tracking here
-        console.log(`User selected: ${this.value}`);
-    }
-});
-
-// Function to handle call button clicks
-function handleCallClick(phoneNumber) {
-    // Optional: Add call tracking here
-    console.log(`Calling: ${phoneNumber}`);
-    return true;
+// Load Results
+function loadResults(service) {
+    const cityData = emergencyDatabase[selectedCity];
+    const items = cityData[service];
+    const resultsList = document.getElementById('results-list');
+    
+    let html = '';
+    items.forEach(item => {
+        if (service === 'hospital') {
+            html += `
+                <div class="result-item" onclick="callNumber('${item.number}')">
+                    <h4><i class="fas fa-hospital"></i> ${item.name}</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ${item.address}</p>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <a href="tel:${item.number}" class="phone-number" onclick="event.stopPropagation()">
+                            <i class="fas fa-phone"></i> ${item.number}
+                        </a>
+                        ${item.emergency ? `
+                        <a href="tel:${item.emergency}" class="phone-number" style="background: #ff4444;" onclick="event.stopPropagation()">
+                            <i class="fas fa-ambulance"></i> Emergency
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+        } else {
+            html += `
+                <div class="result-item" onclick="callNumber('${item.number}')">
+                    <h4><i class="fas ${service === 'police' ? 'fa-police-box' : service === 'fire' ? 'fa-fire' : 'fa-ambulance'}"></i> ${item.name}</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> ${item.area || 'City Area'}</p>
+                    <a href="tel:${item.number}" class="phone-number" onclick="event.stopPropagation()">
+                        <i class="fas fa-phone"></i> ${item.number}
+                    </a>
+                </div>
+            `;
+        }
+    });
+    
+    resultsList.innerHTML = html;
 }
 
-// Initialize tooltips or any other features
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Emergency Helpline Bangladesh loaded');
+// Call Number
+function callNumber(number) {
+    window.location.href = `tel:${number}`;
     
-    // Check if URL has city parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const cityParam = urlParams.get('city');
-    
-    if (cityParam && emergencyDatabase[cityParam]) {
-        document.getElementById('city').value = cityParam;
-        loadEmergencyContacts();
+    // Show call animation
+    const btn = event?.currentTarget;
+    if (btn) {
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            btn.style.transform = 'scale(1)';
+        }, 200);
     }
-});
+}
 
-// Add keyboard shortcut for emergency (Ctrl+E to focus city selector)
+// Reset to City Selection
+function resetToCitySelection() {
+    // Hide other containers
+    document.getElementById('service-categories').style.display = 'none';
+    document.getElementById('results-container').style.display = 'none';
+    
+    // Show city selector
+    document.querySelector('.city-selector').style.display = 'block';
+    document.querySelector('.city-selector').style.animation = 'slideUp 0.5s ease-out';
+    
+    // Reset selections
+    selectedCity = null;
+    selectedService = null;
+}
+
+// Back to Services
+function backToServices() {
+    document.getElementById('results-container').style.display = 'none';
+    document.getElementById('service-categories').style.display = 'block';
+    document.getElementById('service-categories').style.animation = 'slideUp 0.5s ease-out';
+}
+
+// Emergency Quick Access
+function showEmergencyQuickAccess() {
+    const fabMenu = document.querySelector('.fab-menu');
+    fabMenu.style.display = fabMenu.style.display === 'flex' ? 'none' : 'flex';
+}
+
+// Keyboard Shortcuts
 document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'e') {
+    // Press 'E' for emergency
+    if (e.key === 'e' || e.key === 'E') {
         e.preventDefault();
-        document.getElementById('city').focus();
+        callNumber('999');
+    }
+    
+    // Press 'Esc' to go back
+    if (e.key === 'Escape') {
+        if (document.getElementById('results-container').style.display === 'block') {
+            backToServices();
+        } else if (document.getElementById('service-categories').style.display === 'block') {
+            resetToCitySelection();
+        }
     }
 });
 
-// Service Worker for offline capability (optional)
+// Add ripple effect to all buttons
+document.addEventListener('click', function(e) {
+    if (e.target.closest('button') || e.target.closest('.national-card') || e.target.closest('.result-item')) {
+        const element = e.target.closest('button') || e.target.closest('.national-card') || e.target.closest('.result-item');
+        
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.left = e.clientX - element.getBoundingClientRect().left + 'px';
+        ripple.style.top = e.clientY - element.getBoundingClientRect().top + 'px';
+        
+        element.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+});
+
+// Preload data for faster access
+function preloadData() {
+    // Cache all city data
+    Object.keys(emergencyDatabase).forEach(city => {
+        // Just accessing the data to load it into memory
+        const data = emergencyDatabase[city];
+    });
+}
+
+// Call preload on idle
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(preloadData);
+} else {
+    setTimeout(preloadData, 1000);
+}
+
+// Service Worker for offline support (optional)
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').then(function(registration) {
-            console.log('ServiceWorker registration successful');
-        }, function(err) {
+        navigator.serviceWorker.register('/sw.js').catch(function(err) {
             console.log('ServiceWorker registration failed: ', err);
         });
     });
