@@ -3,70 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Helpline Bangladesh</title>
+    <title>Life Saver - Bangladesh Emergency Response</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="cyber-grid"></div>
+    <div class="floating-shapes"></div>
+    
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <label for="theme-switch" class="theme-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <div class="toggle-ball"></div>
+        </label>
+    </div>
+
     <div class="container">
-        <header>
-            <h1><i class="fas fa-ambulance"></i> Emergency Helpline Bangladesh</h1>
-            <p>Quick access to emergency services in your city</p>
+        <!-- Header Section with Glitch Effect -->
+        <header class="glitch-container">
+            <div class="heart-beat">
+                <i class="fas fa-heart-broken broken-heart"></i>
+            </div>
+            <h1 class="glitch" data-text="LIFE SAVER">LIFE SAVER</h1>
+            <p class="subtitle">Bangladesh Emergency Response System</p>
+            <div class="pulse-ring"></div>
         </header>
 
-        <div class="city-selector">
-            <label for="city">Select Your City:</label>
-            <select id="city" onchange="loadEmergencyContacts()">
-                <option value="">-- Select a city --</option>
-                <option value="dhaka">Dhaka</option>
-                <option value="chittagong">Chittagong</option>
-                <option value="rajshahi">Rajshahi</option>
-                <option value="khulna">Khulna</option>
-                <option value="barisal">Barisal</option>
-                <option value="sylhet">Sylhet</option>
-                <option value="rangpur">Rangpur</option>
-                <option value="mymensingh">Mymensingh</option>
-            </select>
+        <!-- Main Selection Interface -->
+        <div class="selection-interface">
+            <!-- City Selection Card -->
+            <div class="glass-card city-selector animate-slide-up">
+                <div class="card-glow"></div>
+                <h2><i class="fas fa-map-marker-alt"></i> SELECT YOUR CITY</h2>
+                <div class="city-grid">
+                    <button class="city-btn" data-city="dhaka">
+                        <span class="city-icon">🇧🇩</span>
+                        <span class="city-name">Dhaka</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="chittagong">
+                        <span class="city-icon">⚓</span>
+                        <span class="city-name">Chittagong</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="rajshahi">
+                        <span class="city-icon">🌾</span>
+                        <span class="city-name">Rajshahi</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="khulna">
+                        <span class="city-icon">🏭</span>
+                        <span class="city-name">Khulna</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="barisal">
+                        <span class="city-icon">🌊</span>
+                        <span class="city-name">Barisal</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="sylhet">
+                        <span class="city-icon">🍃</span>
+                        <span class="city-name">Sylhet</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="rangpur">
+                        <span class="city-icon">🏔️</span>
+                        <span class="city-name">Rangpur</span>
+                        <span class="city-glow"></span>
+                    </button>
+                    <button class="city-btn" data-city="mymensingh">
+                        <span class="city-icon">🏛️</span>
+                        <span class="city-name">Mymensingh</span>
+                        <span class="city-glow"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Service Category Selection (Shows after city selection) -->
+            <div id="service-categories" class="glass-card service-categories animate-fade-in" style="display: none;">
+                <div class="card-glow"></div>
+                <h2><i class="fas fa-h-square"></i> SELECT SERVICE TYPE</h2>
+                <p class="city-display">Selected: <span id="selected-city-display"></span></p>
+                <div class="service-grid">
+                    <button class="service-btn" data-service="police">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span class="service-name">Police</span>
+                        <div class="service-hover"></div>
+                    </button>
+                    <button class="service-btn" data-service="fire">
+                        <div class="service-icon">
+                            <i class="fas fa-fire-extinguisher"></i>
+                        </div>
+                        <span class="service-name">Fire Service</span>
+                        <div class="service-hover"></div>
+                    </button>
+                    <button class="service-btn" data-service="hospital">
+                        <div class="service-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <span class="service-name">Hospital</span>
+                        <div class="service-hover"></div>
+                    </button>
+                    <button class="service-btn" data-service="ambulance">
+                        <div class="service-icon">
+                            <i class="fas fa-ambulance"></i>
+                        </div>
+                        <span class="service-name">Ambulance</span>
+                        <div class="service-hover"></div>
+                    </button>
+                </div>
+                <button class="back-btn" onclick="resetToCitySelection()">
+                    <i class="fas fa-arrow-left"></i> Change City
+                </button>
+            </div>
+
+            <!-- Results Display (Shows after service selection) -->
+            <div id="results-container" class="glass-card results-container animate-scale-in" style="display: none;">
+                <div class="card-glow"></div>
+                <div class="results-header">
+                    <h2><span id="result-service-icon"></span> <span id="result-service-name"></span></h2>
+                    <p id="result-city-name"></p>
+                </div>
+                
+                <!-- National Emergency Numbers (Always Visible) -->
+                <div class="national-numbers">
+                    <h3><i class="fas fa-exclamation-triangle"></i> National Emergency</h3>
+                    <div class="national-grid">
+                        <div class="national-card" onclick="callNumber('999')">
+                            <i class="fas fa-police-box"></i>
+                            <span>Police</span>
+                            <strong>999</strong>
+                            <div class="ripple"></div>
+                        </div>
+                        <div class="national-card" onclick="callNumber('199')">
+                            <i class="fas fa-fire"></i>
+                            <span>Fire</span>
+                            <strong>199</strong>
+                            <div class="ripple"></div>
+                        </div>
+                        <div class="national-card" onclick="callNumber('123')">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Ambulance</span>
+                            <strong>123</strong>
+                            <div class="ripple"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Results List -->
+                <div id="results-list" class="results-list">
+                    <!-- Results will be loaded here -->
+                </div>
+
+                <div class="results-actions">
+                    <button class="back-btn" onclick="backToServices()">
+                        <i class="fas fa-arrow-left"></i> Back to Services
+                    </button>
+                    <button class="emergency-btn" onclick="callNumber('999')">
+                        <i class="fas fa-exclamation-circle"></i> EMERGENCY
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div id="emergency-contacts" class="contacts-container" style="display: none;">
-            <h2>National Emergency Numbers</h2>
-            <div class="national-contacts">
-                <div class="contact-card national">
-                    <i class="fas fa-police-box"></i>
-                    <h3>Police</h3>
-                    <p class="number">999</p>
-                    <a href="tel:999" class="call-btn"><i class="fas fa-phone"></i> Call Now</a>
-                </div>
-                <div class="contact-card national">
-                    <i class="fas fa-fire-extinguisher"></i>
-                    <h3>Fire Service</h3>
-                    <p class="number">199</p>
-                    <a href="tel:199" class="call-btn"><i class="fas fa-phone"></i> Call Now</a>
-                </div>
-                <div class="contact-card national">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>Ambulance</h3>
-                    <p class="number">123</p>
-                    <a href="tel:123" class="call-btn"><i class="fas fa-phone"></i> Call Now</a>
-                </div>
-            </div>
-
-            <h2>Hospitals in <span id="selected-city-name"></span></h2>
-            <div id="hospital-list" class="hospital-list">
-                <!-- Hospitals will be loaded here dynamically -->
-            </div>
-
-            <h2>Other Emergency Services</h2>
-            <div id="other-services" class="other-services">
-                <!-- Other services will be loaded here -->
+        <!-- Quick Access Floating Button -->
+        <div class="quick-access">
+            <button class="fab" onclick="showEmergencyQuickAccess()">
+                <i class="fas fa-phone-alt"></i>
+            </button>
+            <div class="fab-menu">
+                <a href="tel:999" class="fab-item police">999</a>
+                <a href="tel:199" class="fab-item fire">199</a>
+                <a href="tel:123" class="fab-item ambulance">123</a>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Emergency Helpline Bangladesh. All rights reserved.</p>
-        <p class="disclaimer">For emergencies, always call the national numbers first.</p>
+        <div class="footer-content">
+            <p><i class="fas fa-heart-broken"></i> Life Saver - Bangladesh Emergency Response System</p>
+            <p class="disclaimer">For life-threatening emergencies, always call 999 first</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
