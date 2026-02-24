@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Saver Bangladesh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,800&display=swap" rel="stylesheet">
+    <!-- Baloo Da 2 as primary font (exactly as requested) -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Baloo Da 2', cursive;  /* as requested */
         }
         
         body {
-            font-family: 'Inter', sans-serif;
             background: #f8fafc;
             min-height: 100vh;
             transition: background 0.2s, color 0.2s;
@@ -30,59 +31,22 @@
             max-width: 1280px;
             margin: 0 auto;
         }
-        
-        /* --- TOP HEADER — no gap, fully stuck --- */
+
+        /* ----- TOP HEADER : centered logo (Life Saver) ----- */
         .top-header {
-            margin-top: 0;
-            padding-top: 0;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: transparent;
-            margin-bottom: 36px;
+            flex-direction: column;
+            align-items: center;      /* center everything */
+            justify-content: center;
+            margin-bottom: 32px;
+            position: relative;
         }
-        
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .logo-icon {
-            font-size: 42px;
-            color: #dc2626;
-            filter: drop-shadow(0 4px 6px rgba(220,38,38,0.2));
-            animation: softPulse 2s infinite;
-        }
-        
-        @keyframes softPulse {
-            0%, 100% { transform: scale(1); opacity: 0.95; }
-            50% { transform: scale(1.05); opacity: 1; }
-        }
-        
-        .logo-area h1 {
-            font-size: 42px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(145deg, #b91c1c, #dc2626);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .tagline {
-            font-weight: 500;
-            color: #64748b;
-            font-size: 16px;
-        }
-        
-        .dark-mode .tagline {
-            color: #94a3b8;
-        }
-        
-        /* Theme toggle — perfect circle, stays right */
+
+        /* theme toggle still top-right, but centered header */
         .theme-toggle {
-            flex-shrink: 0;
+            position: absolute;
+            top: 0;
+            right: 0;
         }
         
         .theme-btn {
@@ -112,14 +76,58 @@
             transform: scale(1.1);
             box-shadow: 0 0 0 3px rgba(220,38,38,0.3);
         }
+
+        /* Logo area — centered */
+        .logo-area {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 0;
+        }
         
-        /* Cards — modern, subtle, professional */
+        .logo-icon {
+            font-size: 48px;
+            color: #dc2626;
+            filter: drop-shadow(0 4px 6px rgba(220,38,38,0.2));
+            animation: softPulse 2s infinite;
+        }
+        
+        @keyframes softPulse {
+            0%, 100% { transform: scale(1); opacity: 0.95; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        .logo-area h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(145deg, #b91c1c, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .tagline {
+            font-weight: 500;
+            color: #64748b;
+            font-size: 18px;
+            text-align: center;
+            margin-top: 4px;
+        }
+        
+        .dark-mode .tagline {
+            color: #94a3b8;
+        }
+
+        /* ---------- Cards & sections (light mode: thin blue border) ---------- */
         .city-card, .service-card, .result-card, .section {
             background: white;
             border-radius: 24px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.05);
             transition: all 0.2s;
-            border: 1px solid #e9eef2;
+            /* light mode: thin blue border */
+            border: 1px solid #b8d1f0;  /* soft blue */
         }
         
         .dark-mode .city-card, 
@@ -127,7 +135,7 @@
         .dark-mode .result-card, 
         .dark-mode .section {
             background: #1a2332;
-            border-color: #2d3a4e;
+            border-color: #2d3a4e;      /* dark mode border stays subtle */
             box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
         
@@ -138,7 +146,7 @@
         
         .section h2 {
             margin-bottom: 24px;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -153,8 +161,8 @@
         .section h2 i {
             color: #dc2626;
         }
-        
-        /* city grid */
+
+        /* city grid — only city names, no extra text (exactly as required) */
         .city-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -168,14 +176,15 @@
             background: white;
             border-radius: 20px;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 20px;            /* city name only */
             color: #1e293b;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #b8d1f0;   /* light blue border */
             transition: 0.15s;
         }
         
         .dark-mode .city-card {
             color: #e2e8f0;
+            border-color: #2d3a4e;
         }
         
         .city-card:hover {
@@ -185,8 +194,8 @@
             transform: translateY(-3px);
             box-shadow: 0 12px 20px -10px #dc2626;
         }
-        
-        /* service cards */
+
+        /* service grid */
         .service-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -203,12 +212,13 @@
             font-weight: 600;
             font-size: 20px;
             color: #1e293b;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #b8d1f0;
             transition: 0.2s;
         }
         
         .dark-mode .service-card {
             color: #e2e8f0;
+            border-color: #2d3a4e;
         }
         
         .service-card i {
@@ -228,7 +238,7 @@
         .service-card:hover i {
             color: white;
         }
-        
+
         /* search */
         .search-box {
             margin: 24px 0 20px;
@@ -240,10 +250,11 @@
             padding: 16px 24px;
             font-size: 16px;
             border-radius: 60px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #b8d1f0;
             outline: none;
             background: white;
             transition: 0.2s;
+            font-family: 'Baloo Da 2', cursive;
         }
         
         .dark-mode .search-box input {
@@ -264,7 +275,7 @@
             transform: translateY(-50%);
             color: #94a3b8;
         }
-        
+
         /* results grid */
         .results-grid {
             display: grid;
@@ -283,7 +294,7 @@
             padding: 22px;
             border-radius: 20px;
             background: white;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #b8d1f0;   /* light blue border */
             animation: fadeUp 0.2s ease;
         }
         
@@ -339,6 +350,7 @@
             transition: 0.15s;
             border: none;
             cursor: pointer;
+            font-family: 'Baloo Da 2', cursive;
         }
         
         .call-btn {
@@ -369,13 +381,44 @@
             color: white;
             border-color: #dc2626;
         }
-        
-        /* No extra map-link inputs — direct href */
-        /* Back buttons — removed from UI (no manual back) */
+
+        /* ---------- BACK BUTTONS (centered, both top & bottom) ---------- */
         .back-btn {
-            display: none;  /* no back button per requirement */
+            background: transparent;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 10px 32px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.2s;
+            margin: 10px auto 20px auto;  /* auto horizontal centers */
+            font-family: 'Baloo Da 2', cursive;
+            width: fit-content;
         }
         
+        .dark-mode .back-btn {
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        .back-btn:hover {
+            background: #dc2626;
+            color: white;
+        }
+
+        /* top & bottom back button wrappers */
+        .back-top-wrapper, .back-bottom-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
         /* pagination */
         .pagination {
             display: flex;
@@ -388,12 +431,13 @@
             width: 42px;
             height: 42px;
             border-radius: 14px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid #b8d1f0;
             background: white;
             color: #1e293b;
             font-weight: 600;
             cursor: pointer;
             transition: 0.15s;
+            font-family: 'Baloo Da 2', cursive;
         }
         
         .dark-mode .page-btn {
@@ -438,29 +482,25 @@
             border-color: #1e293b;
             color: #94a3b8;
         }
-        
-        /* no user-facing back — fine */
     </style>
 </head>
 <body>
-    <!-- top header: absolutely no gap, logo & theme toggle -->
     <div class="container">
+        <!-- Top header: centered logo, theme toggle fixed at right -->
         <div class="top-header">
             <div class="logo-area">
                 <i class="fas fa-heart-broken logo-icon"></i>
                 <h1>Life Saver</h1>
             </div>
+            <p class="tagline">Bangladesh emergency response · direct access</p>
             <div class="theme-toggle">
-                <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" aria-label="Toggle theme">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
             </div>
         </div>
 
-        <!-- minimal tagline under header but still no extra gap -->
-        <p class="tagline" style="margin-top: -12px; margin-bottom: 24px;">Bangladesh emergency response · direct access</p>
-
-        <!-- City Selection Section -->
+        <!-- City Selection Section (only city names, no extra text) -->
         <div id="citySection" class="section">
             <h2><i class="fas fa-map-marker-alt"></i> Select your city</h2>
             <div class="city-grid">
@@ -475,10 +515,13 @@
             </div>
         </div>
 
-        <!-- Service Selection Section -->
+        <!-- Service Selection Section (with top and bottom back buttons) -->
         <div id="serviceSection" class="section hidden">
-            <!-- back-btn hidden (display:none) but kept for logic reference -->
-            <button class="back-btn" onclick="goBackToCities()" style="display:none;">hidden</button>
+            <!-- top back button (centered) -->
+            <div class="back-top-wrapper">
+                <button class="back-btn" onclick="goBackToCities()"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+
             <h2><span id="selectedCityDisplay"></span> <i class="fas fa-chevron-right" style="font-size: 20px; color:#94a3b8;"></i> Choose service</h2>
             <div class="service-grid">
                 <button class="service-card" data-service="police"><i class="fas fa-shield-alt"></i>Police</button>
@@ -486,12 +529,20 @@
                 <button class="service-card" data-service="hospital"><i class="fas fa-hospital"></i>Hospital</button>
                 <button class="service-card" data-service="ambulance"><i class="fas fa-ambulance"></i>Ambulance</button>
             </div>
+
+            <!-- bottom back button -->
+            <div class="back-bottom-wrapper">
+                <button class="back-btn" onclick="goBackToCities()"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
         </div>
 
-        <!-- Results Section -->
+        <!-- Results Section (with top and bottom back) -->
         <div id="resultSection" class="section hidden">
-            <!-- back button hidden visually but exists for internal state if needed — we keep but hide -->
-            <button class="back-btn" onclick="goBackToServices()" style="display:none;"></button>
+            <!-- top back button -->
+            <div class="back-top-wrapper">
+                <button class="back-btn" onclick="goBackToServices()"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
+
             <h2 id="resultHeader"></h2>
             
             <!-- search only for hospitals -->
@@ -502,6 +553,11 @@
             
             <div id="resultsGrid" class="results-grid"></div>
             <div id="pagination" class="pagination"></div>
+
+            <!-- bottom back button -->
+            <div class="back-bottom-wrapper">
+                <button class="back-btn" onclick="goBackToServices()"><i class="fas fa-arrow-left"></i> Back</button>
+            </div>
         </div>
 
         <footer>
@@ -510,7 +566,7 @@
     </div>
 
     <script>
-        // Comprehensive Database (kept same, but mapLink used for direct href)
+        // ---------- DATABASE (identical, untouched) ----------
         const database = {
             dhaka: {
                 name: "Dhaka",
@@ -622,7 +678,7 @@
             }
         };
 
-        // State
+        // ---------- STATE ----------
         let selectedCity = '';
         let selectedService = '';
         let currentPage = 1;
@@ -639,19 +695,17 @@
                 icon.className = 'fas fa-moon';
             }
         }
-
-        // Dark mode preference
+        document.getElementById('themeBtn').addEventListener('click', toggleTheme);
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.body.classList.add('dark-mode');
             document.querySelector('#themeBtn i').className = 'fas fa-sun';
         }
 
-        // City selection (event delegation)
+        // City selection (only city name shown)
         document.querySelectorAll('.city-card').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const city = e.currentTarget.getAttribute('data-city');
-                selectedCity = city;
-                document.getElementById('selectedCityDisplay').innerHTML = database[city].name;
+                selectedCity = e.currentTarget.getAttribute('data-city');
+                document.getElementById('selectedCityDisplay').innerHTML = database[selectedCity].name;
                 document.getElementById('citySection').classList.add('hidden');
                 document.getElementById('serviceSection').classList.remove('hidden');
             });
@@ -660,30 +714,27 @@
         // Service selection
         document.querySelectorAll('.service-card').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const service = e.currentTarget.getAttribute('data-service');
-                selectedService = service;
+                selectedService = e.currentTarget.getAttribute('data-service');
                 const cityData = database[selectedCity];
                 const serviceNames = { police:'Police Stations', fire:'Fire Stations', hospital:'Hospitals', ambulance:'Ambulance' };
-                document.getElementById('resultHeader').innerHTML = `${cityData.name} · ${serviceNames[service]}`;
+                document.getElementById('resultHeader').innerHTML = `${cityData.name} · ${serviceNames[selectedService]}`;
 
                 const searchBox = document.getElementById('searchBox');
-                if (service === 'hospital') {
+                if (selectedService === 'hospital') {
                     searchBox.classList.remove('hidden');
                     filteredHospitals = cityData.hospital;
                 } else {
                     searchBox.classList.add('hidden');
                 }
 
-                // reset page
                 currentPage = 1;
-                loadResults(service, cityData[service]);
+                loadResults(selectedService, cityData[selectedService]);
 
                 document.getElementById('serviceSection').classList.add('hidden');
                 document.getElementById('resultSection').classList.remove('hidden');
             });
         });
 
-        // Load results with direct map href (no copy, no extra toggle)
         function loadResults(service, items) {
             const grid = document.getElementById('resultsGrid');
             if (!items || items.length === 0) {
@@ -701,7 +752,6 @@
             let html = '';
             pageItems.forEach(item => {
                 if (service === 'hospital') {
-                    // Map button uses direct href (opens link)
                     const mapLink = item.mapLink || 'https://maps.app.goo.gl/placeholder';
                     html += `
                         <div class="result-card">
@@ -715,10 +765,7 @@
                         </div>
                     `;
                 } else {
-                    let icon = 'fa-building';
-                    if (service === 'police') icon = 'fa-shield-halved';
-                    else if (service === 'fire') icon = 'fa-fire';
-                    else if (service === 'ambulance') icon = 'fa-truck-medical';
+                    let icon = (service === 'police') ? 'fa-shield-halved' : (service === 'fire' ? 'fa-fire' : 'fa-truck-medical');
                     html += `
                         <div class="result-card">
                             <h4><i class="fas ${icon}"></i> ${item.name}</h4>
@@ -730,40 +777,33 @@
                     `;
                 }
             });
-
             grid.innerHTML = html;
 
-            // pagination buttons
             let pagHtml = '';
             for (let i = 1; i <= totalPages; i++) {
                 pagHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
             }
             document.getElementById('pagination').innerHTML = pagHtml;
-
-            // Attach pagination events
             document.querySelectorAll('.page-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    const page = parseInt(e.target.getAttribute('data-page'));
-                    currentPage = page;
+                    currentPage = parseInt(e.target.getAttribute('data-page'));
                     loadResults(selectedService, database[selectedCity][selectedService]);
                 });
             });
         }
 
-        // Search hospitals
+        // Search
         document.getElementById('searchInput').addEventListener('input', function (e) {
             const term = e.target.value.toLowerCase().trim();
             const cityHospitals = database[selectedCity].hospital;
             filteredHospitals = cityHospitals.filter(h => 
-                h.name.toLowerCase().includes(term) || 
-                (h.address && h.address.toLowerCase().includes(term))
+                h.name.toLowerCase().includes(term) || (h.address && h.address.toLowerCase().includes(term))
             );
             currentPage = 1;
             loadResults('hospital', cityHospitals);
         });
 
-        // internal back functions are kept but not used (no visible back button)
-        // but we allow if needed via ESC key (soft navigation) — but no UI back
+        // Navigation functions (used by back buttons)
         window.goBackToCities = function() {
             document.getElementById('serviceSection').classList.add('hidden');
             document.getElementById('citySection').classList.remove('hidden');
@@ -777,7 +817,7 @@
             currentPage = 1;
         };
 
-        // ESC still works but no visible button (soft)
+        // ESC key also works but we keep back buttons
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (!document.getElementById('resultSection').classList.contains('hidden')) {
@@ -787,8 +827,6 @@
                 }
             }
         });
-
-        // Ensure no manual back button appears (they are hidden via display:none)
     </script>
 </body>
 </html>
