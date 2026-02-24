@@ -1,64 +1,51 @@
 // Emergency Database
-const emergencyDatabase = {
+const emergencyData = {
     dhaka: {
         name: "Dhaka",
         police: [
             { name: "Dhaka Metropolitan Police", number: "01713455660", area: "Headquarters" },
             { name: "Ramna Police Station", number: "01713455661", area: "Ramna" },
-            { name: "Gulshan Police Station", number: "01713455662", area: "Gulshan" },
-            { name: "Banani Police Station", number: "01713455663", area: "Banani" },
-            { name: "Uttara Police Station", number: "01713455664", area: "Uttara" }
+            { name: "Gulshan Police Station", number: "01713455662", area: "Gulshan" }
         ],
         fire: [
             { name: "Dhaka Fire Service HQ", number: "01769000111", area: "Headquarters" },
-            { name: "Tejgaon Fire Station", number: "01769000112", area: "Tejgaon" },
-            { name: "Gulshan Fire Station", number: "01769000113", area: "Gulshan" },
-            { name: "Motijheel Fire Station", number: "01769000114", area: "Motijheel" }
+            { name: "Tejgaon Fire Station", number: "01769000112", area: "Tejgaon" }
         ],
         hospital: [
             { name: "Square Hospital", number: "01713455667", address: "Panthapath", emergency: "01713455666" },
-            { name: "United Hospital", number: "01755567890", address: "Gulshan", emergency: "01755567891" },
-            { name: "Apollo Hospital", number: "01744455667", address: "Bashundhara", emergency: "01744455668" },
-            { name: "Dhaka Medical College", number: "01769000333", address: "Secretariat Road", emergency: "01769000334" }
+            { name: "United Hospital", number: "01755567890", address: "Gulshan" }
         ],
         ambulance: [
-            { name: "Dhaka Ambulance Service", number: "01769000222", area: "All Dhaka" },
-            { name: "Red Crescent Ambulance", number: "01711555665", area: "Emergency Service" },
-            { name: "Private Ambulance Service", number: "01711555666", area: "24/7 Service" }
+            { name: "Dhaka Ambulance Service", number: "01769000222", area: "24/7 Service" },
+            { name: "Red Crescent Ambulance", number: "01711555665", area: "Emergency" }
         ]
     },
     chittagong: {
         name: "Chittagong",
         police: [
             { name: "Chittagong Metropolitan Police", number: "01711555660", area: "Headquarters" },
-            { name: "Kotwali Police Station", number: "01711555661", area: "Kotwali" },
-            { name: "Panchlaish Police Station", number: "01711555662", area: "Panchlaish" }
+            { name: "Kotwali Police Station", number: "01711555661", area: "Kotwali" }
         ],
         fire: [
-            { name: "Chittagong Fire Service", number: "01711555661", area: "Headquarters" },
-            { name: "Agrabad Fire Station", number: "01711555662", area: "Agrabad" }
+            { name: "Chittagong Fire Service", number: "01711555661", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Chittagong Medical College", number: "01711555667", address: "K.B. Fazlul Kader Road", emergency: "01711555668" },
-            { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle", emergency: "01722667789" }
+            { name: "Chittagong Medical College", number: "01711555667", address: "K.B. Fazlul Kader Road" }
         ],
         ambulance: [
-            { name: "Chittagong Ambulance", number: "01711555662", area: "City Service" },
-            { name: "Port Ambulance", number: "01711555663", area: "Port Area" }
+            { name: "Chittagong Ambulance", number: "01711555662", area: "City Service" }
         ]
     },
     rajshahi: {
         name: "Rajshahi",
         police: [
-            { name: "Rajshahi Metropolitan Police", number: "01711555991", area: "Headquarters" },
-            { name: "Boalia Police Station", number: "01711555992", area: "Boalia" }
+            { name: "Rajshahi Metropolitan Police", number: "01711555991", area: "Headquarters" }
         ],
         fire: [
             { name: "Rajshahi Fire Service", number: "01711555992", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Rajshahi Medical College", number: "01711555999", address: "Laxmipur", emergency: "01711555998" },
-            { name: "Islami Bank Hospital", number: "01711555997", address: "Kazihata", emergency: "01711555996" }
+            { name: "Rajshahi Medical College", number: "01711555999", address: "Laxmipur" }
         ],
         ambulance: [
             { name: "Rajshahi Ambulance", number: "01711555993", area: "City Service" }
@@ -73,8 +60,7 @@ const emergencyDatabase = {
             { name: "Khulna Fire Service", number: "01711555881", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Khulna Medical College", number: "01711555888", address: "Sonadanga", emergency: "01711555887" },
-            { name: "Gazi Medical College", number: "01711555886", address: "Moylapota", emergency: "01711555885" }
+            { name: "Khulna Medical College", number: "01711555888", address: "Sonadanga" }
         ],
         ambulance: [
             { name: "Khulna Ambulance", number: "01711555880", area: "City Service" }
@@ -89,8 +75,7 @@ const emergencyDatabase = {
             { name: "Barisal Fire Service", number: "01711555772", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Sher-e-Bangla Medical College", number: "01711555777", address: "Barisal Sadar", emergency: "01711555776" },
-            { name: "Barisal General Hospital", number: "01711555775", address: "Sadar Road", emergency: "01711555774" }
+            { name: "Sher-e-Bangla Medical College", number: "01711555777", address: "Barisal Sadar" }
         ],
         ambulance: [
             { name: "Barisal Ambulance", number: "01711555771", area: "City Service" }
@@ -105,8 +90,7 @@ const emergencyDatabase = {
             { name: "Sylhet Fire Service", number: "01711555659", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula", emergency: "01711555665" },
-            { name: "North East Medical College", number: "01711555664", address: "Sylhet City", emergency: "01711555663" }
+            { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula" }
         ],
         ambulance: [
             { name: "Sylhet Ambulance", number: "01711555658", area: "City Service" }
@@ -121,8 +105,7 @@ const emergencyDatabase = {
             { name: "Rangpur Fire Service", number: "01711555550", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Rangpur Medical College", number: "01711555555", address: "Medical Road", emergency: "01711555554" },
-            { name: "Prime Hospital", number: "01711555553", address: "Station Road", emergency: "01711555552" }
+            { name: "Rangpur Medical College", number: "01711555555", address: "Medical Road" }
         ],
         ambulance: [
             { name: "Rangpur Ambulance", number: "01711555549", area: "City Service" }
@@ -137,8 +120,7 @@ const emergencyDatabase = {
             { name: "Mymensingh Fire Service", number: "01711555439", area: "Headquarters" }
         ],
         hospital: [
-            { name: "Mymensingh Medical College", number: "01711555444", address: "Medical College Road", emergency: "01711555443" },
-            { name: "Community Based Medical College", number: "01711555442", address: "Mymensingh City", emergency: "01711555441" }
+            { name: "Mymensingh Medical College", number: "01711555444", address: "Medical College Road" }
         ],
         ambulance: [
             { name: "Mymensingh Ambulance", number: "01711555438", area: "City Service" }
@@ -146,115 +128,73 @@ const emergencyDatabase = {
     }
 };
 
-// State Management
-let selectedCity = null;
-let selectedService = null;
+// State variables
+let currentCity = null;
+let currentService = null;
 
-// Initialize Theme
-document.addEventListener('DOMContentLoaded', function() {
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.body.className = savedTheme;
-    document.getElementById('theme-switch').checked = savedTheme === 'light';
-    
-    // Add city button listeners
-    document.querySelectorAll('.city-btn').forEach(btn => {
-        btn.addEventListener('click', () => selectCity(btn.dataset.city));
-    });
+// Theme toggle
+document.getElementById('themeBtn').addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    const icon = this.querySelector('i');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.className = 'fas fa-sun';
+    } else {
+        icon.className = 'fas fa-moon';
+    }
 });
 
-// Theme Toggle
-document.getElementById('theme-switch').addEventListener('change', function(e) {
-    const theme = e.target.checked ? 'light' : 'dark';
-    document.body.className = theme;
-    localStorage.setItem('theme', theme);
-});
-
-// Select City
+// City selection
 function selectCity(city) {
-    selectedCity = city;
-    const cityData = emergencyDatabase[city];
+    currentCity = city;
+    const cityName = emergencyData[city].name;
+    document.getElementById('selectedCityDisplay').textContent = cityName;
     
-    // Update display
-    document.getElementById('selected-city-display').textContent = cityData.name;
-    
-    // Hide city selector with animation
-    document.querySelector('.city-selector').style.animation = 'slideUp 0.3s reverse';
-    setTimeout(() => {
-        document.querySelector('.city-selector').style.display = 'none';
-        // Show service categories
-        document.getElementById('service-categories').style.display = 'block';
-        document.getElementById('service-categories').style.animation = 'slideUp 0.5s ease-out';
-    }, 300);
-    
-    // Add service button listeners
-    document.querySelectorAll('.service-btn').forEach(btn => {
-        btn.removeEventListener('click', serviceClickHandler);
-        btn.addEventListener('click', serviceClickHandler);
-    });
+    // Hide city section, show service section
+    document.getElementById('citySection').style.display = 'none';
+    document.getElementById('serviceSection').style.display = 'block';
 }
 
-// Service Click Handler
-function serviceClickHandler(e) {
-    const service = e.currentTarget.dataset.service;
-    selectService(service);
-}
-
-// Select Service
+// Service selection
 function selectService(service) {
-    selectedService = service;
-    const cityData = emergencyDatabase[selectedCity];
+    currentService = service;
+    const cityData = emergencyData[currentCity];
     
-    // Update results header
-    const serviceIcons = {
-        police: 'fa-shield-alt',
-        fire: 'fa-fire-extinguisher',
-        hospital: 'fa-hospital',
-        ambulance: 'fa-ambulance'
-    };
-    
+    // Set header
     const serviceNames = {
         police: 'Police Stations',
         fire: 'Fire Service Stations',
         hospital: 'Hospitals',
         ambulance: 'Ambulance Services'
     };
+    document.getElementById('resultHeader').innerHTML = `${cityData.name} - ${serviceNames[service]}`;
     
-    document.getElementById('result-service-icon').className = `fas ${serviceIcons[service]}`;
-    document.getElementById('result-service-name').textContent = serviceNames[service];
-    document.getElementById('result-city-name').textContent = cityData.name;
+    // Load results
+    loadResults(service);
     
-    // Hide service categories
-    document.getElementById('service-categories').style.animation = 'fadeIn 0.3s reverse';
-    setTimeout(() => {
-        document.getElementById('service-categories').style.display = 'none';
-        
-        // Load and show results
-        loadResults(service);
-        document.getElementById('results-container').style.display = 'block';
-        document.getElementById('results-container').style.animation = 'scaleIn 0.5s ease-out';
-    }, 300);
+    // Hide service section, show result section
+    document.getElementById('serviceSection').style.display = 'none';
+    document.getElementById('resultSection').style.display = 'block';
 }
 
-// Load Results
+// Load results
 function loadResults(service) {
-    const cityData = emergencyDatabase[selectedCity];
+    const cityData = emergencyData[currentCity];
     const items = cityData[service];
-    const resultsList = document.getElementById('results-list');
+    const resultsList = document.getElementById('resultsList');
     
     let html = '';
     items.forEach(item => {
         if (service === 'hospital') {
             html += `
-                <div class="result-item" onclick="callNumber('${item.number}')">
+                <div class="result-item">
                     <h4><i class="fas fa-hospital"></i> ${item.name}</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> ${item.address}</p>
-                    <div style="display: flex; gap: 10px; margin-top: 10px;">
-                        <a href="tel:${item.number}" class="phone-number" onclick="event.stopPropagation()">
+                    <p><i class="fas fa-map-marker-alt"></i> ${item.address || 'City Area'}</p>
+                    <div class="result-actions">
+                        <a href="tel:${item.number}" class="call-btn">
                             <i class="fas fa-phone"></i> ${item.number}
                         </a>
                         ${item.emergency ? `
-                        <a href="tel:${item.emergency}" class="phone-number" style="background: #ff4444;" onclick="event.stopPropagation()">
+                        <a href="tel:${item.emergency}" class="call-btn emergency">
                             <i class="fas fa-ambulance"></i> Emergency
                         </a>
                         ` : ''}
@@ -263,12 +203,14 @@ function loadResults(service) {
             `;
         } else {
             html += `
-                <div class="result-item" onclick="callNumber('${item.number}')">
+                <div class="result-item">
                     <h4><i class="fas ${service === 'police' ? 'fa-police-box' : service === 'fire' ? 'fa-fire' : 'fa-ambulance'}"></i> ${item.name}</h4>
                     <p><i class="fas fa-map-marker-alt"></i> ${item.area || 'City Area'}</p>
-                    <a href="tel:${item.number}" class="phone-number" onclick="event.stopPropagation()">
-                        <i class="fas fa-phone"></i> ${item.number}
-                    </a>
+                    <div class="result-actions">
+                        <a href="tel:${item.number}" class="call-btn">
+                            <i class="fas fa-phone"></i> ${item.number}
+                        </a>
+                    </div>
                 </div>
             `;
         }
@@ -277,105 +219,39 @@ function loadResults(service) {
     resultsList.innerHTML = html;
 }
 
-// Call Number
-function callNumber(number) {
-    window.location.href = `tel:${number}`;
-    
-    // Show call animation
-    const btn = event?.currentTarget;
-    if (btn) {
-        btn.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-            btn.style.transform = 'scale(1)';
-        }, 200);
-    }
+// Navigation functions
+function goBackToCities() {
+    document.getElementById('serviceSection').style.display = 'none';
+    document.getElementById('citySection').style.display = 'block';
+    currentCity = null;
 }
 
-// Reset to City Selection
-function resetToCitySelection() {
-    // Hide other containers
-    document.getElementById('service-categories').style.display = 'none';
-    document.getElementById('results-container').style.display = 'none';
-    
-    // Show city selector
-    document.querySelector('.city-selector').style.display = 'block';
-    document.querySelector('.city-selector').style.animation = 'slideUp 0.5s ease-out';
-    
-    // Reset selections
-    selectedCity = null;
-    selectedService = null;
+function goBackToServices() {
+    document.getElementById('resultSection').style.display = 'none';
+    document.getElementById('serviceSection').style.display = 'block';
+    currentService = null;
 }
 
-// Back to Services
-function backToServices() {
-    document.getElementById('results-container').style.display = 'none';
-    document.getElementById('service-categories').style.display = 'block';
-    document.getElementById('service-categories').style.animation = 'slideUp 0.5s ease-out';
-}
-
-// Emergency Quick Access
-function showEmergencyQuickAccess() {
-    const fabMenu = document.querySelector('.fab-menu');
-    fabMenu.style.display = fabMenu.style.display === 'flex' ? 'none' : 'flex';
-}
-
-// Keyboard Shortcuts
+// Keyboard shortcuts
 document.addEventListener('keydown', function(e) {
-    // Press 'E' for emergency
-    if (e.key === 'e' || e.key === 'E') {
-        e.preventDefault();
-        callNumber('999');
-    }
-    
-    // Press 'Esc' to go back
     if (e.key === 'Escape') {
-        if (document.getElementById('results-container').style.display === 'block') {
-            backToServices();
-        } else if (document.getElementById('service-categories').style.display === 'block') {
-            resetToCitySelection();
+        if (document.getElementById('resultSection').style.display === 'block') {
+            goBackToServices();
+        } else if (document.getElementById('serviceSection').style.display === 'block') {
+            goBackToCities();
         }
     }
-});
-
-// Add ripple effect to all buttons
-document.addEventListener('click', function(e) {
-    if (e.target.closest('button') || e.target.closest('.national-card') || e.target.closest('.result-item')) {
-        const element = e.target.closest('button') || e.target.closest('.national-card') || e.target.closest('.result-item');
-        
-        const ripple = document.createElement('span');
-        ripple.className = 'ripple';
-        ripple.style.left = e.clientX - element.getBoundingClientRect().left + 'px';
-        ripple.style.top = e.clientY - element.getBoundingClientRect().top + 'px';
-        
-        element.appendChild(ripple);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
+    
+    if (e.key === 'e' || e.key === 'E') {
+        window.location.href = 'tel:999';
     }
 });
 
-// Preload data for faster access
-function preloadData() {
-    // Cache all city data
-    Object.keys(emergencyDatabase).forEach(city => {
-        // Just accessing the data to load it into memory
-        const data = emergencyDatabase[city];
-    });
-}
-
-// Call preload on idle
-if ('requestIdleCallback' in window) {
-    requestIdleCallback(preloadData);
-} else {
-    setTimeout(preloadData, 1000);
-}
-
-// Service Worker for offline support (optional)
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/sw.js').catch(function(err) {
-            console.log('ServiceWorker registration failed: ', err);
-        });
-    });
-}
+// Save theme preference
+window.addEventListener('load', function() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+        document.body.classList.add('dark-mode');
+        document.querySelector('#themeBtn i').className = 'fas fa-sun';
+    }
+});
