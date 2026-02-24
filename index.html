@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life Saver Bangladesh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -15,23 +15,23 @@
         }
         
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #f5f5f5;
             min-height: 100vh;
             transition: all 0.3s;
-            padding: 0;
-        }
-        
-        body.dark-mode {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
             padding: 20px;
         }
         
-        /* Theme Toggle - Perfect Circle */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Theme Toggle - Perfect Circle Fixed at Top */
         .theme-toggle {
             position: fixed;
             top: 20px;
@@ -43,11 +43,11 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 3px solid #ffd700;
+            border: 2px solid #dc2626;
             background: white;
             cursor: pointer;
             font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -55,31 +55,20 @@
         }
         
         .dark-mode .theme-btn {
-            background: #2d2d2d;
-            color: #ffd700;
-            border-color: #ffd700;
+            background: #333;
+            color: white;
+            border-color: #dc2626;
         }
         
         .theme-btn:hover {
-            transform: scale(1.1) rotate(180deg);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #dc2626;
         }
         
-        /* Header - No Gap at Top */
+        /* Header */
         header {
             text-align: center;
-            padding: 20px 0 30px 0;
-            margin: 0;
-            background: rgba(0, 0, 0, 0.9);
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-        
-        .dark-mode header {
-            background: rgba(0, 0, 0, 0.95);
+            margin: 80px 0 40px 0;
         }
         
         .logo {
@@ -90,10 +79,9 @@
         }
         
         .logo i {
-            font-size: 60px;
-            color: #ff4444;
+            font-size: 50px;
+            color: #dc2626;
             animation: heartbeat 1.5s infinite;
-            filter: drop-shadow(0 0 10px rgba(255,68,68,0.5));
         }
         
         @keyframes heartbeat {
@@ -102,178 +90,151 @@
         }
         
         .logo h1 {
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 800;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            letter-spacing: 2px;
+            color: #dc2626;
         }
         
-        header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        
-        /* Professional Cards - Different Border Colors */
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        /* All Cards - White with Red Border */
+        .city-card, .service-card, .result-card, .section {
+            background: white;
+            border: 2px solid #dc2626;
+            border-radius: 15px;
             transition: all 0.3s;
         }
         
+        .dark-mode .city-card, 
+        .dark-mode .service-card, 
+        .dark-mode .result-card, 
         .dark-mode .section {
-            background: rgba(30, 30, 46, 0.95);
+            background: #2d2d2d;
+            border-color: #dc2626;
+            color: white;
         }
         
-        /* City Cards - Purple Border */
+        .city-card:hover, .service-card:hover, .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+            border-color: #dc2626;
+        }
+        
+        /* City Section */
+        .section {
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .section h2 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #dc2626;
+        }
+        
         .city-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
         }
         
         .city-card {
-            padding: 25px 15px;
+            padding: 20px;
             cursor: pointer;
             text-align: center;
             background: white;
-            border: 3px solid #8b5cf6;
-            border-radius: 15px;
-            font-size: 22px;
-            font-weight: 700;
-            color: #1f2937;
+            border: 2px solid #dc2626;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
         }
         
         .dark-mode .city-card {
-            background: #2d2d44;
             color: white;
-            border-color: #a78bfa;
         }
         
         .city-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: #6d28d9;
-            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.4);
-            background: #8b5cf6;
+            background: #dc2626;
             color: white;
         }
         
-        /* Service Cards - Different Colors */
+        /* Service Grid */
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
         
         .service-card {
-            padding: 30px 20px;
+            padding: 25px;
             cursor: pointer;
             text-align: center;
             background: white;
-            border-width: 3px;
-            border-style: solid;
-            border-radius: 15px;
-            font-size: 22px;
-            font-weight: 700;
+            border: 2px solid #dc2626;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .dark-mode .service-card {
-            background: #2d2d44;
             color: white;
         }
         
-        .service-card.police {
-            border-color: #2563eb;
-        }
-        .service-card.police:hover {
-            background: #2563eb;
-            color: white;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
-        }
-        
-        .service-card.fire {
-            border-color: #ea580c;
-        }
-        .service-card.fire:hover {
-            background: #ea580c;
-            color: white;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.4);
-        }
-        
-        .service-card.hospital {
-            border-color: #059669;
-        }
-        .service-card.hospital:hover {
-            background: #059669;
-            color: white;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(5, 150, 105, 0.4);
-        }
-        
-        .service-card.ambulance {
-            border-color: #dc2626;
-        }
-        .service-card.ambulance:hover {
+        .service-card:hover {
             background: #dc2626;
             color: white;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(220, 38, 38, 0.4);
         }
         
         .service-card i {
-            font-size: 40px;
-            margin-bottom: 15px;
+            font-size: 30px;
+            margin-bottom: 10px;
             display: block;
+            color: #dc2626;
         }
         
-        /* Search Box - Professional */
+        .service-card:hover i {
+            color: white;
+        }
+        
+        /* Search Box */
         .search-box {
-            margin: 25px 0;
+            margin: 20px 0;
             position: relative;
         }
         
         .search-box input {
             width: 100%;
-            padding: 18px 25px;
+            padding: 15px 20px;
             font-size: 16px;
-            border: 3px solid #8b5cf6;
-            border-radius: 50px;
+            border: 2px solid #dc2626;
+            border-radius: 12px;
             outline: none;
             background: white;
             transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
         }
         
         .dark-mode .search-box input {
-            background: #2d2d44;
+            background: #2d2d2d;
             color: white;
-            border-color: #a78bfa;
+            border-color: #dc2626;
         }
         
         .search-box input:focus {
-            box-shadow: 0 0 25px rgba(139, 92, 246, 0.5);
-            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
         }
         
         .search-box i {
             position: absolute;
-            right: 25px;
+            right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: #8b5cf6;
+            color: #dc2626;
             font-size: 20px;
         }
         
@@ -281,8 +242,8 @@
         .results-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin-top: 25px;
+            gap: 20px;
+            margin-top: 20px;
         }
         
         @media (max-width: 768px) {
@@ -292,251 +253,186 @@
         }
         
         .result-card {
-            padding: 25px;
+            padding: 20px;
             background: white;
-            border: 3px solid #8b5cf6;
-            border-radius: 20px;
+            border: 2px solid #dc2626;
+            border-radius: 12px;
             transition: all 0.3s;
             animation: fadeIn 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        .dark-mode .result-card {
-            background: #2d2d44;
-            border-color: #a78bfa;
-        }
-        
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(139, 92, 246, 0.3);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .result-card h4 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #1f2937;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #dc2626;
             display: flex;
             align-items: center;
             gap: 8px;
-            border-bottom: 2px solid #8b5cf6;
-            padding-bottom: 10px;
-        }
-        
-        .dark-mode .result-card h4 {
-            color: white;
         }
         
         .result-card p {
-            color: #4b5563;
+            color: #666;
             margin-bottom: 15px;
             font-size: 14px;
-            line-height: 1.6;
         }
         
         .dark-mode .result-card p {
-            color: #d1d5db;
+            color: #aaa;
         }
         
         .card-actions {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-top: 15px;
         }
         
         .action-btn {
-            padding: 10px 20px;
-            border-radius: 10px;
+            padding: 8px 15px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 14px;
-            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            flex: 1;
-            justify-content: center;
+            font-weight: 600;
         }
         
         .call-btn {
-            background: linear-gradient(135deg, #059669, #047857);
+            background: #dc2626;
             color: white;
         }
         
         .call-btn:hover {
+            background: #b91c1c;
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.4);
         }
         
         .map-btn {
-            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            background: white;
+            color: #dc2626;
+            border: 2px solid #dc2626;
+        }
+        
+        .dark-mode .map-btn {
+            background: #2d2d2d;
             color: white;
         }
         
         .map-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
-        }
-        
-        .emergency-call {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            background: #dc2626;
             color: white;
         }
         
-        /* Map Link Input - Space for Custom Links */
-        .map-link-container {
+        /* Map Link Input */
+        .map-link-input {
             margin-top: 15px;
-            padding: 15px;
-            background: #f3f4f6;
-            border-radius: 12px;
-            border: 2px dashed #8b5cf6;
             display: none;
         }
         
-        .dark-mode .map-link-container {
-            background: #1f2937;
-        }
-        
-        .map-link-container.show {
+        .map-link-input.show {
             display: block;
-            animation: slideDown 0.3s ease;
         }
         
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .map-link-container label {
+        .map-link-input label {
             display: block;
-            margin-bottom: 8px;
-            color: #8b5cf6;
+            margin-bottom: 5px;
+            color: #dc2626;
             font-weight: 600;
-            font-size: 14px;
         }
         
-        .map-link-input-group {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .map-link-container input {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #8b5cf6;
+        .map-link-input input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #dc2626;
             border-radius: 8px;
             font-size: 14px;
             background: white;
         }
         
-        .dark-mode .map-link-container input {
-            background: #2d2d44;
+        .dark-mode .map-link-input input {
+            background: #2d2d2d;
             color: white;
         }
         
-        .open-map-btn {
-            padding: 12px 20px;
-            background: #8b5cf6;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        
-        .open-map-btn:hover {
-            background: #6d28d9;
-            transform: scale(1.05);
-        }
-        
-        .save-link-btn {
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: #10b981;
+        .copy-link-btn {
+            margin-top: 5px;
+            padding: 5px 10px;
+            background: #dc2626;
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 13px;
-            transition: all 0.3s;
+            font-size: 12px;
         }
         
-        .save-link-btn:hover {
-            background: #059669;
-        }
-        
-        /* Back Button - Built-in Navigation */
+        /* Back Button */
         .back-btn {
-            background: rgba(139, 92, 246, 0.1);
-            border: 2px solid #8b5cf6;
-            color: #8b5cf6;
-            padding: 12px 25px;
-            border-radius: 12px;
+            background: transparent;
+            border: 2px solid #dc2626;
+            color: #dc2626;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
             margin-bottom: 20px;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.3s;
             font-weight: 600;
         }
         
         .dark-mode .back-btn {
-            color: #a78bfa;
-            border-color: #a78bfa;
+            color: white;
+            border-color: #dc2626;
         }
         
         .back-btn:hover {
-            background: #8b5cf6;
+            background: #dc2626;
             color: white;
-            transform: translateX(-5px);
-        }
-        
-        .back-btn i {
-            font-size: 14px;
         }
         
         /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin-top: 40px;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
         }
         
         .page-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            border: 2px solid #8b5cf6;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #dc2626;
             background: white;
-            color: #8b5cf6;
+            color: #dc2626;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 18px;
+            font-weight: 600;
             transition: all 0.3s;
         }
         
         .dark-mode .page-btn {
-            background: #2d2d44;
-            color: #a78bfa;
+            background: #2d2d2d;
+            color: white;
         }
         
         .page-btn.active {
-            background: #8b5cf6;
+            background: #dc2626;
             color: white;
         }
         
-        .page-btn:hover:not(.active) {
-            background: #8b5cf6;
+        .page-btn:hover {
+            background: #dc2626;
             color: white;
-            transform: scale(1.1);
         }
         
         /* Hide/Show */
@@ -547,38 +443,23 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 30px 30px 0 0;
-            color: white;
-        }
-        
-        .dark-mode footer {
-            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid #dc2626;
         }
         
         /* No Results */
         .no-results {
             text-align: center;
-            padding: 60px;
-            color: #8b5cf6;
-            font-size: 20px;
-            font-weight: 600;
+            padding: 40px;
+            color: #dc2626;
+            font-size: 18px;
             grid-column: span 2;
-            background: white;
-            border-radius: 20px;
-            border: 3px dashed #8b5cf6;
-        }
-        
-        .dark-mode .no-results {
-            background: #2d2d44;
-            color: #a78bfa;
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle -->
+    <!-- Theme Toggle - Perfect Circle Fixed at Top -->
     <div class="theme-toggle">
         <button class="theme-btn" onclick="toggleTheme()">
             <i class="fas fa-moon"></i>
@@ -586,20 +467,18 @@
     </div>
 
     <div class="container">
-        <!-- Header - No Gap at Top -->
+        <!-- Header -->
         <header>
             <div class="logo">
                 <i class="fas fa-heart-broken"></i>
                 <h1>Life Saver</h1>
             </div>
-            <p>Bangladesh Emergency Response System</p>
+            <p style="font-size: 18px; color: #dc2626;">Bangladesh Emergency Response System</p>
         </header>
 
         <!-- City Selection Section -->
         <div id="citySection" class="section">
-            <h2 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">
-                <i class="fas fa-map-marker-alt" style="color: #8b5cf6;"></i> Select Your City
-            </h2>
+            <h2><i class="fas fa-map-marker-alt"></i> Select Your City</h2>
             <div class="city-grid">
                 <button class="city-card" onclick="selectCity('dhaka')">Dhaka</button>
                 <button class="city-card" onclick="selectCity('chittagong')">Chittagong</button>
@@ -617,23 +496,21 @@
             <button class="back-btn" onclick="goBackToCities()">
                 <i class="fas fa-arrow-left"></i> Change City
             </button>
-            <h2 style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;">
-                <span id="selectedCityDisplay"></span> - Select Service
-            </h2>
+            <h2><span id="selectedCityDisplay"></span> - Select Service</h2>
             <div class="service-grid">
-                <button class="service-card police" onclick="selectService('police')">
+                <button class="service-card" onclick="selectService('police')">
                     <i class="fas fa-shield-alt"></i>
                     Police
                 </button>
-                <button class="service-card fire" onclick="selectService('fire')">
+                <button class="service-card" onclick="selectService('fire')">
                     <i class="fas fa-fire-extinguisher"></i>
                     Fire Service
                 </button>
-                <button class="service-card hospital" onclick="selectService('hospital')">
+                <button class="service-card" onclick="selectService('hospital')">
                     <i class="fas fa-hospital"></i>
                     Hospital
                 </button>
-                <button class="service-card ambulance" onclick="selectService('ambulance')">
+                <button class="service-card" onclick="selectService('ambulance')">
                     <i class="fas fa-ambulance"></i>
                     Ambulance
                 </button>
@@ -645,11 +522,11 @@
             <button class="back-btn" onclick="goBackToServices()">
                 <i class="fas fa-arrow-left"></i> Back to Services
             </button>
-            <h2 id="resultHeader" style="color: #8b5cf6; font-size: 28px; margin-bottom: 20px;"></h2>
+            <h2 id="resultHeader"></h2>
             
             <!-- Search Box - Only for Hospitals -->
             <div id="searchBox" class="search-box hidden">
-                <input type="text" id="searchInput" placeholder="Search hospitals by name or address..." onkeyup="searchHospitals()">
+                <input type="text" id="searchInput" placeholder="Search hospitals..." onkeyup="searchHospitals()">
                 <i class="fas fa-search"></i>
             </div>
             
@@ -662,11 +539,11 @@
     </div>
 
     <footer>
-        <p><i class="fas fa-heart-broken" style="color: #ff4444;"></i> Life Saver - Emergency Contacts Bangladesh</p>
+        <p><i class="fas fa-heart-broken" style="color: #dc2626;"></i> Life Saver - Emergency Contacts Bangladesh</p>
     </footer>
 
     <script>
-        // Comprehensive Hospital Database with Map Links
+        // Comprehensive Hospital Database for Bangladesh
         const database = {
             dhaka: {
                 name: "Dhaka",
@@ -680,18 +557,18 @@
                     { name: "Tejgaon Fire Station", number: "01769000112", location: "Tejgaon" }
                 ],
                 hospital: [
-                    { name: "Square Hospital", number: "01713455667", address: "18/F, West Panthapath, Dhaka", emergency: "01713455666", mapLink: "https://www.google.com/maps/search/Square+Hospital+Dhaka" },
-                    { name: "United Hospital", number: "01755567890", address: "Plot 15, Road 71, Gulshan, Dhaka", emergency: "01755567891", mapLink: "https://www.google.com/maps/search/United+Hospital+Gulshan+Dhaka" },
-                    { name: "Apollo Hospital Dhaka", number: "01744455667", address: "Plot 81, Block E, Bashundhara, Dhaka", mapLink: "https://www.google.com/maps/search/Apollo+Hospital+Bashundhara+Dhaka" },
-                    { name: "Dhaka Medical College Hospital", number: "01769000333", address: "Secretariat Road, Dhaka", emergency: "01769000334", mapLink: "https://www.google.com/maps/search/Dhaka+Medical+College+Hospital" },
-                    { name: "Birdem Hospital", number: "01711445566", address: "Shahbagh, Dhaka", mapLink: "https://www.google.com/maps/search/Birdem+Hospital+Shahbagh+Dhaka" },
-                    { name: "Labaid Hospital", number: "01755566778", address: "Dhanmondi, Dhaka", mapLink: "https://www.google.com/maps/search/Labaid+Hospital+Dhanmondi+Dhaka" },
-                    { name: "Popular Hospital", number: "01755566779", address: "Dhanmondi, Dhaka", mapLink: "https://www.google.com/maps/search/Popular+Hospital+Dhanmondi+Dhaka" },
-                    { name: "Ibn Sina Hospital", number: "01755566780", address: "Dhanmondi, Dhaka", mapLink: "https://www.google.com/maps/search/Ibn+Sina+Hospital+Dhanmondi+Dhaka" },
-                    { name: "Holy Family Hospital", number: "01755566781", address: "Moghbazar, Dhaka", mapLink: "https://www.google.com/maps/search/Holy+Family+Hospital+Moghbazar+Dhaka" },
-                    { name: "Shahid Suhrawardy Hospital", number: "01755566782", address: "Sher-e-Bangla Nagar, Dhaka", mapLink: "https://www.google.com/maps/search/Shahid+Suhrawardy+Hospital+Dhaka" },
-                    { name: "Kurmitola General Hospital", number: "01755566783", address: "Kurmitola, Dhaka", mapLink: "https://www.google.com/maps/search/Kurmitola+General+Hospital+Dhaka" },
-                    { name: "Mugda Medical College", number: "01755566784", address: "Mugda, Dhaka", mapLink: "https://www.google.com/maps/search/Mugda+Medical+College+Dhaka" }
+                    { name: "Square Hospital", number: "01713455667", address: "18/F, West Panthapath, Dhaka", emergency: "01713455666", mapLink: "https://maps.app.goo.gl/xyz1" },
+                    { name: "United Hospital", number: "01755567890", address: "Plot 15, Road 71, Gulshan, Dhaka", emergency: "01755567891", mapLink: "https://maps.app.goo.gl/xyz2" },
+                    { name: "Apollo Hospital Dhaka", number: "01744455667", address: "Plot 81, Block E, Bashundhara, Dhaka", mapLink: "https://maps.app.goo.gl/xyz3" },
+                    { name: "Dhaka Medical College Hospital", number: "01769000333", address: "Secretariat Road, Dhaka", emergency: "01769000334", mapLink: "https://maps.app.goo.gl/xyz4" },
+                    { name: "Birdem Hospital", number: "01711445566", address: "Shahbagh, Dhaka", mapLink: "https://maps.app.goo.gl/xyz5" },
+                    { name: "Labaid Hospital", number: "01755566778", address: "Dhanmondi, Dhaka", mapLink: "https://maps.app.goo.gl/xyz6" },
+                    { name: "Popular Hospital", number: "01755566779", address: "Dhanmondi, Dhaka", mapLink: "https://maps.app.goo.gl/xyz7" },
+                    { name: "Ibn Sina Hospital", number: "01755566780", address: "Dhanmondi, Dhaka", mapLink: "https://maps.app.goo.gl/xyz8" },
+                    { name: "Holy Family Hospital", number: "01755566781", address: "Moghbazar, Dhaka", mapLink: "https://maps.app.goo.gl/xyz9" },
+                    { name: "Shahid Suhrawardy Hospital", number: "01755566782", address: "Sher-e-Bangla Nagar, Dhaka", mapLink: "https://maps.app.goo.gl/xyz10" },
+                    { name: "Kurmitola General Hospital", number: "01755566783", address: "Kurmitola, Dhaka", mapLink: "https://maps.app.goo.gl/xyz11" },
+                    { name: "Mugda Medical College", number: "01755566784", address: "Mugda, Dhaka", mapLink: "https://maps.app.goo.gl/xyz12" }
                 ],
                 ambulance: [
                     { name: "Dhaka Ambulance Service", number: "01769000222", location: "24/7 Service" },
@@ -707,11 +584,11 @@
                     { name: "Chittagong Fire Service", number: "01711555661", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Chittagong Medical College Hospital", number: "01711555667", address: "K.B. Fazlul Kader Road, Chittagong", emergency: "01711555668", mapLink: "https://www.google.com/maps/search/Chittagong+Medical+College+Hospital" },
-                    { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle, Chittagong", mapLink: "https://www.google.com/maps/search/CSCR+Hospital+Chittagong" },
-                    { name: "Parkview Hospital", number: "01733778899", address: "2/J, CDA Avenue, Chittagong", mapLink: "https://www.google.com/maps/search/Parkview+Hospital+Chittagong" },
-                    { name: "Max Hospital & Diagnostic", number: "01744889900", address: "1020, O.R. Nizam Road, Chittagong", mapLink: "https://www.google.com/maps/search/Max+Hospital+Chittagong" },
-                    { name: "Chattagram Maa-O-Shishu Hospital", number: "01711555669", address: "Agrabad, Chittagong", mapLink: "https://www.google.com/maps/search/Chattagram+Maa+O+Shishu+Hospital" }
+                    { name: "Chittagong Medical College Hospital", number: "01711555667", address: "K.B. Fazlul Kader Road, Chittagong", emergency: "01711555668", mapLink: "https://maps.app.goo.gl/xyz13" },
+                    { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle, Chittagong", mapLink: "https://maps.app.goo.gl/xyz14" },
+                    { name: "Parkview Hospital", number: "01733778899", address: "2/J, CDA Avenue, Chittagong", mapLink: "https://maps.app.goo.gl/xyz15" },
+                    { name: "Max Hospital & Diagnostic", number: "01744889900", address: "1020, O.R. Nizam Road, Chittagong", mapLink: "https://maps.app.goo.gl/xyz16" },
+                    { name: "Chattagram Maa-O-Shishu Hospital", number: "01711555669", address: "Agrabad, Chittagong", mapLink: "https://maps.app.goo.gl/xyz17" }
                 ],
                 ambulance: [
                     { name: "Chittagong Ambulance", number: "01711555662", location: "City Service" }
@@ -726,9 +603,9 @@
                     { name: "Rajshahi Fire Service", number: "01711555992", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Rajshahi Medical College Hospital", number: "01711555999", address: "Laxmipur, Rajshahi", emergency: "01711555998", mapLink: "https://www.google.com/maps/search/Rajshahi+Medical+College+Hospital" },
-                    { name: "Islami Bank Hospital", number: "01711555997", address: "Kazihata, Rajshahi", mapLink: "https://www.google.com/maps/search/Islami+Bank+Hospital+Rajshahi" },
-                    { name: "City Hospital", number: "01711555995", address: "Shaheb Bazar, Rajshahi", mapLink: "https://www.google.com/maps/search/City+Hospital+Rajshahi" }
+                    { name: "Rajshahi Medical College Hospital", number: "01711555999", address: "Laxmipur, Rajshahi", emergency: "01711555998", mapLink: "https://maps.app.goo.gl/xyz18" },
+                    { name: "Islami Bank Hospital", number: "01711555997", address: "Kazihata, Rajshahi", mapLink: "https://maps.app.goo.gl/xyz19" },
+                    { name: "City Hospital", number: "01711555995", address: "Shaheb Bazar, Rajshahi", mapLink: "https://maps.app.goo.gl/xyz20" }
                 ],
                 ambulance: [
                     { name: "Rajshahi Ambulance", number: "01711555993", location: "City Service" }
@@ -743,9 +620,9 @@
                     { name: "Khulna Fire Service", number: "01711555881", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Khulna Medical College Hospital", number: "01711555888", address: "Sonadanga, Khulna", emergency: "01711555887", mapLink: "https://www.google.com/maps/search/Khulna+Medical+College+Hospital" },
-                    { name: "Gazi Medical College Hospital", number: "01711555886", address: "Moylapota, Khulna", mapLink: "https://www.google.com/maps/search/Gazi+Medical+College+Hospital+Khulna" },
-                    { name: "City Medical College Hospital", number: "01711555884", address: "Khulna City", mapLink: "https://www.google.com/maps/search/City+Medical+College+Hospital+Khulna" }
+                    { name: "Khulna Medical College Hospital", number: "01711555888", address: "Sonadanga, Khulna", emergency: "01711555887", mapLink: "https://maps.app.goo.gl/xyz21" },
+                    { name: "Gazi Medical College Hospital", number: "01711555886", address: "Moylapota, Khulna", mapLink: "https://maps.app.goo.gl/xyz22" },
+                    { name: "City Medical College Hospital", number: "01711555884", address: "Khulna City", mapLink: "https://maps.app.goo.gl/xyz23" }
                 ],
                 ambulance: [
                     { name: "Khulna Ambulance", number: "01711555880", location: "City Service" }
@@ -760,8 +637,8 @@
                     { name: "Barisal Fire Service", number: "01711555772", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Sher-e-Bangla Medical College Hospital", number: "01711555777", address: "Barisal Sadar, Barisal", emergency: "01711555776", mapLink: "https://www.google.com/maps/search/Sher+e+Bangla+Medical+College+Hospital+Barisal" },
-                    { name: "Barisal General Hospital", number: "01711555775", address: "Sadar Road, Barisal", mapLink: "https://www.google.com/maps/search/Barisal+General+Hospital" }
+                    { name: "Sher-e-Bangla Medical College Hospital", number: "01711555777", address: "Barisal Sadar, Barisal", emergency: "01711555776", mapLink: "https://maps.app.goo.gl/xyz24" },
+                    { name: "Barisal General Hospital", number: "01711555775", address: "Sadar Road, Barisal", mapLink: "https://maps.app.goo.gl/xyz25" }
                 ],
                 ambulance: [
                     { name: "Barisal Ambulance", number: "01711555771", location: "City Service" }
@@ -776,9 +653,9 @@
                     { name: "Sylhet Fire Service", number: "01711555659", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula, Sylhet", emergency: "01711555665", mapLink: "https://www.google.com/maps/search/Sylhet+MAG+Osmani+Medical+College" },
-                    { name: "North East Medical College", number: "01711555664", address: "Sylhet City", mapLink: "https://www.google.com/maps/search/North+East+Medical+College+Sylhet" },
-                    { name: "Jalalabad Ragib-Rabeya Medical College", number: "01711555662", address: "Sylhet", mapLink: "https://www.google.com/maps/search/Jalalabad+Ragib+Rabeya+Medical+College" }
+                    { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula, Sylhet", emergency: "01711555665", mapLink: "https://maps.app.goo.gl/xyz26" },
+                    { name: "North East Medical College", number: "01711555664", address: "Sylhet City", mapLink: "https://maps.app.goo.gl/xyz27" },
+                    { name: "Jalalabad Ragib-Rabeya Medical College", number: "01711555662", address: "Sylhet", mapLink: "https://maps.app.goo.gl/xyz28" }
                 ],
                 ambulance: [
                     { name: "Sylhet Ambulance", number: "01711555658", location: "City Service" }
@@ -793,8 +670,8 @@
                     { name: "Rangpur Fire Service", number: "01711555550", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Rangpur Medical College Hospital", number: "01711555555", address: "Medical Road, Rangpur", emergency: "01711555554", mapLink: "https://www.google.com/maps/search/Rangpur+Medical+College+Hospital" },
-                    { name: "Prime Hospital", number: "01711555553", address: "Station Road, Rangpur", mapLink: "https://www.google.com/maps/search/Prime+Hospital+Rangpur" }
+                    { name: "Rangpur Medical College Hospital", number: "01711555555", address: "Medical Road, Rangpur", emergency: "01711555554", mapLink: "https://maps.app.goo.gl/xyz29" },
+                    { name: "Prime Hospital", number: "01711555553", address: "Station Road, Rangpur", mapLink: "https://maps.app.goo.gl/xyz30" }
                 ],
                 ambulance: [
                     { name: "Rangpur Ambulance", number: "01711555549", location: "City Service" }
@@ -809,10 +686,10 @@
                     { name: "Mymensingh Fire Service", number: "01711555439", location: "Headquarters" }
                 ],
                 hospital: [
-                    { name: "Mymensingh Medical College Hospital", number: "01711555444", address: "Medical College Road, Mymensingh", emergency: "01711555443", mapLink: "https://www.google.com/maps/search/Mymensingh+Medical+College+Hospital" },
-                    { name: "Community Based Medical College", number: "01711555442", address: "Mymensingh City", mapLink: "https://www.google.com/maps/search/Community+Based+Medical+College+Mymensingh" },
-                    { name: "Mymensingh City Hospital", number: "01711555441", address: "Mymensingh Sadar", mapLink: "https://www.google.com/maps/search/Mymensingh+City+Hospital" },
-                    { name: "Mymensingh General Hospital", number: "01711555440", address: "Mymensingh", mapLink: "https://www.google.com/maps/search/Mymensingh+General+Hospital" }
+                    { name: "Mymensingh Medical College Hospital", number: "01711555444", address: "Medical College Road, Mymensingh", emergency: "01711555443", mapLink: "https://maps.app.goo.gl/xyz31" },
+                    { name: "Community Based Medical College", number: "01711555442", address: "Mymensingh City", mapLink: "https://maps.app.goo.gl/xyz32" },
+                    { name: "Mymensingh City Hospital", number: "01711555441", address: "Mymensingh Sadar", mapLink: "https://maps.app.goo.gl/xyz33" },
+                    { name: "Mymensingh General Hospital", number: "01711555440", address: "Mymensingh", mapLink: "https://maps.app.goo.gl/xyz34" }
                 ],
                 ambulance: [
                     { name: "Mymensingh Ambulance", number: "01711555438", location: "City Service" }
@@ -826,7 +703,6 @@
         let currentPage = 1;
         let itemsPerPage = 4;
         let filteredHospitals = [];
-        let historyStack = [];
 
         // Theme Toggle
         function toggleTheme() {
@@ -845,9 +721,6 @@
             document.getElementById('selectedCityDisplay').innerHTML = database[city].name;
             document.getElementById('citySection').classList.add('hidden');
             document.getElementById('serviceSection').classList.remove('hidden');
-            
-            // Add to history stack
-            historyStack.push('city');
         }
 
         // Service Selection
@@ -874,15 +747,11 @@
             }
             
             // Load results
-            currentPage = 1;
             loadResults(service, cityData[service]);
             
             // Show results section
             document.getElementById('serviceSection').classList.add('hidden');
             document.getElementById('resultSection').classList.remove('hidden');
-            
-            // Add to history stack
-            historyStack.push('service');
         }
 
         // Load Results with Pagination
@@ -908,46 +777,37 @@
             let html = '';
             paginatedItems.forEach(item => {
                 if (service === 'hospital') {
-                    const mapId = `map-${item.name.replace(/\s+/g, '-')}`;
                     html += `
                         <div class="result-card">
-                            <h4><i class="fas fa-hospital" style="color: #059669;"></i> ${item.name}</h4>
-                            <p><i class="fas fa-map-marker-alt" style="color: #8b5cf6;"></i> ${item.address || 'Address not available'}</p>
+                            <h4><i class="fas fa-hospital"></i> ${item.name}</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> ${item.address || 'Address not available'}</p>
                             <div class="card-actions">
                                 <a href="tel:${item.number}" class="action-btn call-btn">
                                     <i class="fas fa-phone"></i> Call
                                 </a>
-                                <button onclick="toggleMapLink('${mapId}')" class="action-btn map-btn">
-                                    <i class="fas fa-map"></i> View on Map
+                                <button onclick="showMapLink('${item.name}')" class="action-btn map-btn">
+                                    <i class="fas fa-map"></i> Map Link
                                 </button>
                                 ${item.emergency ? `
-                                <a href="tel:${item.emergency}" class="action-btn emergency-call">
+                                <a href="tel:${item.emergency}" class="action-btn call-btn" style="background: #b91c1c;">
                                     <i class="fas fa-ambulance"></i> Emergency
                                 </a>
                                 ` : ''}
                             </div>
-                            <div id="${mapId}" class="map-link-container">
-                                <label>📍 Google Maps Link:</label>
-                                <div class="map-link-input-group">
-                                    <input type="text" id="${mapId}-input" value="${item.mapLink || 'https://www.google.com/maps/search/' + encodeURIComponent(item.name)}" placeholder="Enter Google Maps link">
-                                    <button class="open-map-btn" onclick="openMapLink('${mapId}-input')">
-                                        <i class="fas fa-external-link-alt"></i> Open
-                                    </button>
-                                </div>
-                                <button class="save-link-btn" onclick="saveMapLink('${mapId}-input', '${item.name}')">
-                                    <i class="fas fa-save"></i> Save Link
+                            <div id="map-${item.name.replace(/\s+/g, '-')}" class="map-link-input">
+                                <label>Google Maps Link:</label>
+                                <input type="text" value="${item.mapLink || 'Link not available'}" readonly>
+                                <button class="copy-link-btn" onclick="copyMapLink('${item.mapLink}')">
+                                    <i class="fas fa-copy"></i> Copy Link
                                 </button>
                             </div>
                         </div>
                     `;
                 } else {
-                    const icon = service === 'police' ? 'fa-police-box' : (service === 'fire' ? 'fa-fire' : 'fa-ambulance');
-                    const color = service === 'police' ? '#2563eb' : (service === 'fire' ? '#ea580c' : '#dc2626');
-                    
                     html += `
                         <div class="result-card">
-                            <h4><i class="fas ${icon}" style="color: ${color};"></i> ${item.name}</h4>
-                            <p><i class="fas fa-map-marker-alt" style="color: #8b5cf6;"></i> ${item.location || 'City Area'}</p>
+                            <h4><i class="fas ${service === 'police' ? 'fa-police-box' : service === 'fire' ? 'fa-fire' : 'fa-ambulance'}"></i> ${item.name}</h4>
+                            <p><i class="fas fa-map-marker-alt"></i> ${item.location || 'City Area'}</p>
                             <div class="card-actions">
                                 <a href="tel:${item.number}" class="action-btn call-btn">
                                     <i class="fas fa-phone"></i> Call
@@ -966,36 +826,6 @@
                 paginationHtml += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
             }
             document.getElementById('pagination').innerHTML = paginationHtml;
-        }
-
-        // Toggle Map Link Container
-        function toggleMapLink(mapId) {
-            const container = document.getElementById(mapId);
-            container.classList.toggle('show');
-        }
-
-        // Open Map Link
-        function openMapLink(inputId) {
-            const input = document.getElementById(inputId);
-            if (input.value) {
-                window.open(input.value, '_blank');
-            } else {
-                alert('Please enter a Google Maps link first');
-            }
-        }
-
-        // Save Map Link
-        function saveMapLink(inputId, hospitalName) {
-            const input = document.getElementById(inputId);
-            const newLink = input.value;
-            
-            // Find and update hospital in database
-            const cityData = database[selectedCity];
-            const hospital = cityData.hospital.find(h => h.name === hospitalName);
-            if (hospital) {
-                hospital.mapLink = newLink;
-                alert('Map link saved successfully!');
-            }
         }
 
         // Search Hospitals
@@ -1017,17 +847,28 @@
             currentPage = page;
             const cityData = database[selectedCity];
             loadResults(selectedService, cityData[selectedService]);
-            
-            // Scroll to top of results
-            document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Navigation with Back Button Support
+        // Show Map Link
+        function showMapLink(hospitalName) {
+            const mapDiv = document.getElementById(`map-${hospitalName.replace(/\s+/g, '-')}`);
+            if (mapDiv) {
+                mapDiv.classList.toggle('show');
+            }
+        }
+
+        // Copy Map Link
+        function copyMapLink(link) {
+            navigator.clipboard.writeText(link).then(() => {
+                alert('Map link copied to clipboard!');
+            });
+        }
+
+        // Navigation
         function goBackToCities() {
             document.getElementById('serviceSection').classList.add('hidden');
             document.getElementById('citySection').classList.remove('hidden');
             document.getElementById('searchInput').value = '';
-            historyStack.pop();
         }
 
         function goBackToServices() {
@@ -1035,31 +876,18 @@
             document.getElementById('serviceSection').classList.remove('hidden');
             document.getElementById('searchInput').value = '';
             currentPage = 1;
-            historyStack.pop();
         }
 
-        // Handle Browser Back Button
-        window.addEventListener('popstate', function(event) {
-            if (historyStack.length > 0) {
-                const lastState = historyStack[historyStack.length - 1];
-                
-                if (!document.getElementById('citySection').classList.contains('hidden')) {
-                    // Already at city section, do nothing
-                    return;
-                }
-                
-                if (!document.getElementById('serviceSection').classList.contains('hidden')) {
-                    // At service section, go back to cities
-                    goBackToCities();
-                } else if (!document.getElementById('resultSection').classList.contains('hidden')) {
-                    // At results section, go back to services
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (!document.getElementById('resultSection').classList.contains('hidden')) {
                     goBackToServices();
+                } else if (!document.getElementById('serviceSection').classList.contains('hidden')) {
+                    goBackToCities();
                 }
             }
         });
-
-        // Initialize history state
-        window.history.pushState({page: 'start'}, 'Start', '');
 
         // Check for dark mode preference
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
