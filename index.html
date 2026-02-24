@@ -3,195 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life Saver - Bangladesh Emergency Response</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Life Saver - Bangladesh Emergency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="cyber-grid"></div>
-    <div class="floating-shapes"></div>
-    
     <!-- Theme Toggle -->
     <div class="theme-toggle">
-        <input type="checkbox" id="theme-switch" class="theme-switch">
-        <label for="theme-switch" class="theme-label">
-            <i class="fas fa-sun"></i>
+        <button id="themeBtn" class="theme-btn">
             <i class="fas fa-moon"></i>
-            <div class="toggle-ball"></div>
-        </label>
+        </button>
     </div>
 
     <div class="container">
-        <!-- Header Section with Glitch Effect -->
-        <header class="glitch-container">
-            <div class="heart-beat">
-                <i class="fas fa-heart-broken broken-heart"></i>
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-heart-broken"></i>
+                <h1>Life Saver</h1>
             </div>
-            <h1 class="glitch" data-text="LIFE SAVER">LIFE SAVER</h1>
             <p class="subtitle">Bangladesh Emergency Response System</p>
-            <div class="pulse-ring"></div>
         </header>
 
-        <!-- Main Selection Interface -->
-        <div class="selection-interface">
-            <!-- City Selection Card -->
-            <div class="glass-card city-selector animate-slide-up">
-                <div class="card-glow"></div>
-                <h2><i class="fas fa-map-marker-alt"></i> SELECT YOUR CITY</h2>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- City Selection -->
+            <div id="citySection" class="section">
+                <h2><i class="fas fa-map-marker-alt"></i> Select Your City</h2>
                 <div class="city-grid">
-                    <button class="city-btn" data-city="dhaka">
-                        <span class="city-icon">🇧🇩</span>
+                    <button class="city-card" onclick="selectCity('dhaka')">
                         <span class="city-name">Dhaka</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Central Region</span>
                     </button>
-                    <button class="city-btn" data-city="chittagong">
-                        <span class="city-icon">⚓</span>
+                    <button class="city-card" onclick="selectCity('chittagong')">
                         <span class="city-name">Chittagong</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Port City</span>
                     </button>
-                    <button class="city-btn" data-city="rajshahi">
-                        <span class="city-icon">🌾</span>
+                    <button class="city-card" onclick="selectCity('rajshahi')">
                         <span class="city-name">Rajshahi</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Northern Region</span>
                     </button>
-                    <button class="city-btn" data-city="khulna">
-                        <span class="city-icon">🏭</span>
+                    <button class="city-card" onclick="selectCity('khulna')">
                         <span class="city-name">Khulna</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Southern Region</span>
                     </button>
-                    <button class="city-btn" data-city="barisal">
-                        <span class="city-icon">🌊</span>
+                    <button class="city-card" onclick="selectCity('barisal')">
                         <span class="city-name">Barisal</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">River Region</span>
                     </button>
-                    <button class="city-btn" data-city="sylhet">
-                        <span class="city-icon">🍃</span>
+                    <button class="city-card" onclick="selectCity('sylhet')">
                         <span class="city-name">Sylhet</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Northeast Region</span>
                     </button>
-                    <button class="city-btn" data-city="rangpur">
-                        <span class="city-icon">🏔️</span>
+                    <button class="city-card" onclick="selectCity('rangpur')">
                         <span class="city-name">Rangpur</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Northwest Region</span>
                     </button>
-                    <button class="city-btn" data-city="mymensingh">
-                        <span class="city-icon">🏛️</span>
+                    <button class="city-card" onclick="selectCity('mymensingh')">
                         <span class="city-name">Mymensingh</span>
-                        <span class="city-glow"></span>
+                        <span class="city-desc">Central North</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Service Category Selection (Shows after city selection) -->
-            <div id="service-categories" class="glass-card service-categories animate-fade-in" style="display: none;">
-                <div class="card-glow"></div>
-                <h2><i class="fas fa-h-square"></i> SELECT SERVICE TYPE</h2>
-                <p class="city-display">Selected: <span id="selected-city-display"></span></p>
-                <div class="service-grid">
-                    <button class="service-btn" data-service="police">
-                        <div class="service-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <span class="service-name">Police</span>
-                        <div class="service-hover"></div>
-                    </button>
-                    <button class="service-btn" data-service="fire">
-                        <div class="service-icon">
-                            <i class="fas fa-fire-extinguisher"></i>
-                        </div>
-                        <span class="service-name">Fire Service</span>
-                        <div class="service-hover"></div>
-                    </button>
-                    <button class="service-btn" data-service="hospital">
-                        <div class="service-icon">
-                            <i class="fas fa-hospital"></i>
-                        </div>
-                        <span class="service-name">Hospital</span>
-                        <div class="service-hover"></div>
-                    </button>
-                    <button class="service-btn" data-service="ambulance">
-                        <div class="service-icon">
-                            <i class="fas fa-ambulance"></i>
-                        </div>
-                        <span class="service-name">Ambulance</span>
-                        <div class="service-hover"></div>
-                    </button>
-                </div>
-                <button class="back-btn" onclick="resetToCitySelection()">
+            <!-- Service Selection (Hidden by default) -->
+            <div id="serviceSection" class="section" style="display: none;">
+                <button class="back-btn" onclick="goBackToCities()">
                     <i class="fas fa-arrow-left"></i> Change City
                 </button>
+                <h2><span id="selectedCityDisplay"></span> - Select Service</h2>
+                <div class="service-grid">
+                    <button class="service-card" onclick="selectService('police')">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Police</span>
+                    </button>
+                    <button class="service-card" onclick="selectService('fire')">
+                        <i class="fas fa-fire-extinguisher"></i>
+                        <span>Fire Service</span>
+                    </button>
+                    <button class="service-card" onclick="selectService('hospital')">
+                        <i class="fas fa-hospital"></i>
+                        <span>Hospital</span>
+                    </button>
+                    <button class="service-card" onclick="selectService('ambulance')">
+                        <i class="fas fa-ambulance"></i>
+                        <span>Ambulance</span>
+                    </button>
+                </div>
             </div>
 
-            <!-- Results Display (Shows after service selection) -->
-            <div id="results-container" class="glass-card results-container animate-scale-in" style="display: none;">
-                <div class="card-glow"></div>
-                <div class="results-header">
-                    <h2><span id="result-service-icon"></span> <span id="result-service-name"></span></h2>
-                    <p id="result-city-name"></p>
-                </div>
+            <!-- Results Section (Hidden by default) -->
+            <div id="resultSection" class="section" style="display: none;">
+                <button class="back-btn" onclick="goBackToServices()">
+                    <i class="fas fa-arrow-left"></i> Back to Services
+                </button>
+                <h2 id="resultHeader"></h2>
                 
-                <!-- National Emergency Numbers (Always Visible) -->
-                <div class="national-numbers">
-                    <h3><i class="fas fa-exclamation-triangle"></i> National Emergency</h3>
+                <!-- National Emergency Numbers -->
+                <div class="national-section">
+                    <h3>National Emergency</h3>
                     <div class="national-grid">
-                        <div class="national-card" onclick="callNumber('999')">
+                        <a href="tel:999" class="national-card">
                             <i class="fas fa-police-box"></i>
                             <span>Police</span>
                             <strong>999</strong>
-                            <div class="ripple"></div>
-                        </div>
-                        <div class="national-card" onclick="callNumber('199')">
+                        </a>
+                        <a href="tel:199" class="national-card">
                             <i class="fas fa-fire"></i>
                             <span>Fire</span>
                             <strong>199</strong>
-                            <div class="ripple"></div>
-                        </div>
-                        <div class="national-card" onclick="callNumber('123')">
+                        </a>
+                        <a href="tel:123" class="national-card">
                             <i class="fas fa-heartbeat"></i>
                             <span>Ambulance</span>
                             <strong>123</strong>
-                            <div class="ripple"></div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Dynamic Results List -->
-                <div id="results-list" class="results-list">
+                <!-- Results List -->
+                <div id="resultsList" class="results-list">
                     <!-- Results will be loaded here -->
-                </div>
-
-                <div class="results-actions">
-                    <button class="back-btn" onclick="backToServices()">
-                        <i class="fas fa-arrow-left"></i> Back to Services
-                    </button>
-                    <button class="emergency-btn" onclick="callNumber('999')">
-                        <i class="fas fa-exclamation-circle"></i> EMERGENCY
-                    </button>
                 </div>
             </div>
         </div>
 
-        <!-- Quick Access Floating Button -->
-        <div class="quick-access">
-            <button class="fab" onclick="showEmergencyQuickAccess()">
-                <i class="fas fa-phone-alt"></i>
-            </button>
-            <div class="fab-menu">
-                <a href="tel:999" class="fab-item police">999</a>
-                <a href="tel:199" class="fab-item fire">199</a>
-                <a href="tel:123" class="fab-item ambulance">123</a>
-            </div>
+        <!-- Quick Emergency Button -->
+        <div class="quick-emergency">
+            <a href="tel:999" class="emergency-btn">
+                <i class="fas fa-exclamation-triangle"></i>
+                Emergency 999
+            </a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p><i class="fas fa-heart-broken"></i> Life Saver - Bangladesh Emergency Response System</p>
-            <p class="disclaimer">For life-threatening emergencies, always call 999 first</p>
-        </div>
+        <p><i class="fas fa-heart-broken"></i> Life Saver - Emergency Contacts Bangladesh</p>
+        <p class="disclaimer">For emergencies, always call 999 first</p>
     </footer>
 
     <script src="script.js"></script>
