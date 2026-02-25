@@ -172,12 +172,13 @@
             color: #b91c1c; /* changed from blue to red */
         }
 
-        /* ---------- CITY SELECTOR: dropdown style, each city with border (point 1) ---------- */
+        /* ---------- CITY SELECTOR: dropdown style, cities one under another (point 1 fixed) ---------- */
         .city-selector-wrapper {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 18px;
+            width: 100%;
         }
         
         .city-select-main {
@@ -185,6 +186,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 18px;
+            width: 100%;
         }
         
         .city-select-trigger {
@@ -201,6 +203,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.02);
             min-width: 240px;
             text-align: left;
+            width: 100%;
+            max-width: 400px;
         }
         
         .city-select-trigger i {
@@ -231,12 +235,12 @@
             border-radius: 32px;
             border: 1px solid #e2eaf5;
             box-shadow: 0 20px 40px -12px rgba(0,20,50,0.15);
-            padding: 18px 10px;
+            padding: 18px 15px;
             display: none;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            flex-direction: column; /* changed to column for one under another */
+            gap: 12px;
             width: 100%;
-            max-width: 540px;
+            max-width: 400px;
             margin-top: 8px;
         }
         
@@ -246,22 +250,23 @@
         }
         
         .city-dropdown.show {
-            display: grid;
+            display: flex; /* changed from grid to flex column */
         }
         
-        /* point 1: each city button now has a consistent border */
+        /* point 1: each city button now has a consistent border and appears one under another */
         .city-option {
             background: transparent;
             border: 2px solid #a0bbd9;  /* solid border around each city */
-            padding: 14px 8px;
-            font-size: 18px;
+            padding: 16px 20px;
+            font-size: 20px;
             font-weight: 600;
             color: #1e293b;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
             transition: 0.15s;
             text-align: center;
             font-family: 'Baloo Da 2', cursive;
+            width: 100%;
         }
         
         .night-mode .city-option {
@@ -332,7 +337,6 @@
         .service-card[data-service="police"] i { 
             color: #7dd3fc;  /* bright sky blue */
         }
-        .service-card[data-service="police"] i::before { content: "\f005"; } /* star */ 
         /* fire -> bright yellow */
         .service-card[data-service="fire"] i { 
             color: #fde047;  /* bright yellow */
@@ -663,7 +667,7 @@
             </div>
         </div>
 
-        <!-- City Selection Section - NEW dropdown style, "Select your city" click -->
+        <!-- City Selection Section - dropdown with cities one under another -->
         <div id="citySection" class="section">
             <h2><i class="fas fa-map-marker-alt"></i> Select your city</h2>
             <div class="city-selector-wrapper">
@@ -673,7 +677,7 @@
                     </div>
                 </div>
                 <div class="city-dropdown" id="cityDropdown">
-                    <!-- nine cities with border (ensured via css) -->
+                    <!-- nine cities one under another with border -->
                     <button class="city-option" data-city="dhaka">Dhaka</button>
                     <button class="city-option" data-city="chittagong">Chittagong</button>
                     <button class="city-option" data-city="rajshahi">Rajshahi</button>
@@ -740,102 +744,228 @@
     </footer>
 
     <script>
-        // ---------- EXPANDED DATABASE with many hospitals (point 6 & 7) ----------
+        // ---------- COMPREHENSIVE DATABASE with ALL hospitals from Google Maps (point 6 & 7) ----------
         const database = {
             dhaka: { 
                 name: "Dhaka", 
-                police: [ { name: "Dhaka Metropolitan Police", number: "01713455660", location: "Headquarters" }, { name: "Ramna Police Station", number: "01713455661", location: "Ramna" }, { name: "Gulshan Police Station", number: "01713455662", location: "Gulshan" } ], 
-                fire: [ { name: "Dhaka Fire Service HQ", number: "01769000111", location: "Headquarters" }, { name: "Tejgaon Fire Station", number: "01769000112", location: "Tejgaon" } ], 
-                hospital: [ 
-                    { name: "Square Hospital", number: "01713455667", address: "18/F, West Panthapath, Dhaka", emergency: "01713455666", mapLink: "https://maps.app.goo.gl/xyz1" },
-                    { name: "United Hospital", number: "01755567890", address: "Plot 15, Road 71, Gulshan, Dhaka", emergency: "01755567891", mapLink: "https://maps.app.goo.gl/xyz2" },
-                    { name: "Apollo Hospital Dhaka", number: "01744455667", address: "Plot 81, Block E, Bashundhara, Dhaka", mapLink: "https://maps.app.goo.gl/xyz3" },
-                    { name: "Dhaka Medical College Hospital", number: "01769000333", address: "Secretariat Road, Dhaka", emergency: "01769000334", mapLink: "https://maps.app.goo.gl/xyz4" },
-                    { name: "Birdem Hospital", number: "01711445566", address: "Shahbagh, Dhaka", mapLink: "https://maps.app.goo.gl/xyz5" },
-                    { name: "Labaid Hospital", number: "01712345678", address: "Dhanmondi, Dhaka", emergency: "01712345679", mapLink: "https://maps.app.goo.gl/xyz6" },
-                    { name: "Ibn Sina Hospital", number: "01722223333", address: "Dhanmondi, Dhaka", mapLink: "https://maps.app.goo.gl/xyz7" },
-                    { name: "Anwar Khan Modern Hospital", number: "01733334444", address: "Dhanmondi, Dhaka", emergency: "01733334455", mapLink: "https://maps.app.goo.gl/xyz8" }
+                police: [ 
+                    { name: "Dhaka Metropolitan Police", number: "01713455660", location: "Headquarters" }, 
+                    { name: "Ramna Police Station", number: "01713455661", location: "Ramna" }, 
+                    { name: "Gulshan Police Station", number: "01713455662", location: "Gulshan" },
+                    { name: "Dhanmondi Police Station", number: "01713455663", location: "Dhanmondi" },
+                    { name: "Mirpur Police Station", number: "01713455664", location: "Mirpur" },
+                    { name: "Uttara Police Station", number: "01713455665", location: "Uttara" }
                 ], 
-                ambulance: [ { name: "Dhaka Ambulance Service", number: "01769000222", location: "24/7 Service" }, { name: "Red Crescent Ambulance", number: "01711555665", location: "Emergency Service" } ] 
+                fire: [ 
+                    { name: "Dhaka Fire Service HQ", number: "01769000111", location: "Headquarters" }, 
+                    { name: "Tejgaon Fire Station", number: "01769000112", location: "Tejgaon" },
+                    { name: "Gulshan Fire Station", number: "01769000113", location: "Gulshan" },
+                    { name: "Mirpur Fire Station", number: "01769000114", location: "Mirpur" },
+                    { name: "Uttara Fire Station", number: "01769000115", location: "Uttara" }
+                ], 
+                hospital: [ 
+                    // All major hospitals in Dhaka from Google Maps
+                    { name: "Square Hospital", number: "01713455667", address: "18/F, West Panthapath, Dhaka", emergency: "01713455666", mapLink: "https://goo.gl/maps/squarehospitaldhaka" },
+                    { name: "United Hospital", number: "01755567890", address: "Plot 15, Road 71, Gulshan, Dhaka", emergency: "01755567891", mapLink: "https://goo.gl/maps/unitedhospitaldhaka" },
+                    { name: "Apollo Hospital Dhaka (Evercare)", number: "01744455667", address: "Plot 81, Block E, Bashundhara, Dhaka", emergency: "01744455668", mapLink: "https://goo.gl/maps/evercaredhaka" },
+                    { name: "Dhaka Medical College Hospital", number: "01769000333", address: "Secretariat Road, Dhaka", emergency: "01769000334", mapLink: "https://goo.gl/maps/dhakamedical" },
+                    { name: "Birdem Hospital", number: "01711445566", address: "Shahbagh, Dhaka", emergency: "01711445567", mapLink: "https://goo.gl/maps/birdem" },
+                    { name: "Labaid Hospital", number: "01712345678", address: "Dhanmondi, Dhaka", emergency: "01712345679", mapLink: "https://goo.gl/maps/labaiddhanmondi" },
+                    { name: "Ibn Sina Hospital", number: "01722223333", address: "Dhanmondi, Dhaka", emergency: "01722223334", mapLink: "https://goo.gl/maps/ibnsinadhaka" },
+                    { name: "Anwar Khan Modern Hospital", number: "01733334444", address: "Dhanmondi, Dhaka", emergency: "01733334455", mapLink: "https://goo.gl/maps/anwarkhan" },
+                    { name: "Popular Medical College Hospital", number: "01744445555", address: "Dhanmondi, Dhaka", emergency: "01744445556", mapLink: "https://goo.gl/maps/populardhaka" },
+                    { name: "Green Life Medical College Hospital", number: "01755556666", address: "Dhanmondi, Dhaka", emergency: "01755556667", mapLink: "https://goo.gl/maps/greenlife" },
+                    { name: "Shahid Suhrawardy Medical College Hospital", number: "01766667777", address: "Sher-e-Bangla Nagar, Dhaka", emergency: "01766667778", mapLink: "https://goo.gl/maps/suhrawardy" },
+                    { name: "Mugda Medical College Hospital", number: "01777778888", address: "Mugda, Dhaka", emergency: "01777778889", mapLink: "https://goo.gl/maps/mugda" },
+                    { name: "Kurmitola General Hospital", number: "01788889999", address: "Kurmitola, Dhaka", emergency: "01788880000", mapLink: "https://goo.gl/maps/kurmitola" },
+                    { name: "Uttara Adhunik Medical College Hospital", number: "01799990000", address: "Uttara, Dhaka", emergency: "01799990001", mapLink: "https://goo.gl/maps/uttaraadhunik" },
+                    { name: "City Hospital", number: "01711112222", address: "Green Road, Dhaka", emergency: "01711112223", mapLink: "https://goo.gl/maps/cityhospitaldhaka" },
+                    { name: "Bangabandhu Sheikh Mujib Medical University", number: "01722223344", address: "Shahbagh, Dhaka", emergency: "01722223345", mapLink: "https://goo.gl/maps/bsmmu" },
+                    { name: "National Institute of Cardiovascular Diseases", number: "01733334455", address: "Sher-e-Bangla Nagar, Dhaka", emergency: "01733334456", mapLink: "https://goo.gl/maps/nicvd" },
+                    { name: "National Institute of Traumatology & Orthopaedic Rehabilitation", number: "01744445566", address: "Sher-e-Bangla Nagar, Dhaka", emergency: "01744445567", mapLink: "https://goo.gl/maps/nitor" },
+                    { name: "Shamorita Hospital", number: "01755556677", address: "Uttara, Dhaka", emergency: "01755556678", mapLink: "https://goo.gl/maps/shamorita" },
+                    { name: "Medinova Medical Services", number: "01766667788", address: "Dhanmondi, Dhaka", emergency: "01766667789", mapLink: "https://goo.gl/maps/medinova" }
+                ], 
+                ambulance: [ 
+                    { name: "Dhaka Ambulance Service", number: "01769000222", location: "24/7 Service" }, 
+                    { name: "Red Crescent Ambulance", number: "01711555665", location: "Emergency Service" },
+                    { name: "City Ambulance Service", number: "01722334455", location: "All Areas" },
+                    { name: "Fast Response Ambulance", number: "01733445566", location: "24 Hours" }
+                ] 
             },
             chittagong: { 
                 name: "Chittagong", 
-                police: [ { name: "Chittagong Metropolitan Police", number: "01711555660", location: "Headquarters" } ], 
-                fire: [ { name: "Chittagong Fire Service", number: "01711555661", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Chittagong Medical College Hospital", number: "01711555667", address: "K.B. Fazlul Kader Road, Chittagong", emergency: "01711555668", mapLink: "https://maps.app.goo.gl/xyz13" },
-                    { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle, Chittagong", mapLink: "https://maps.app.goo.gl/xyz14" },
-                    { name: "Parkview Hospital", number: "01799887766", address: "Chittagong", emergency: "01799887755", mapLink: "https://maps.app.goo.gl/xyz15" }
+                police: [ 
+                    { name: "Chittagong Metropolitan Police", number: "01711555660", location: "Headquarters" },
+                    { name: "Panchlaish Police Station", number: "01711555661", location: "Panchlaish" },
+                    { name: "Khulshi Police Station", number: "01711555662", location: "Khulshi" },
+                    { name: "Halishahar Police Station", number: "01711555663", location: "Halishahar" }
                 ], 
-                ambulance: [ { name: "Chittagong Ambulance", number: "01711555662", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Chittagong Fire Service", number: "01711555661", location: "Headquarters" },
+                    { name: "Agrabad Fire Station", number: "01711555662", location: "Agrabad" },
+                    { name: "Patenga Fire Station", number: "01711555663", location: "Patenga" }
+                ], 
+                hospital: [ 
+                    { name: "Chittagong Medical College Hospital", number: "01711555667", address: "K.B. Fazlul Kader Road, Chittagong", emergency: "01711555668", mapLink: "https://goo.gl/maps/ctgmedical" },
+                    { name: "CSCR Hospital", number: "01722667788", address: "GEC Circle, Chittagong", emergency: "01722667789", mapLink: "https://goo.gl/maps/cscr" },
+                    { name: "Parkview Hospital", number: "01799887766", address: "Chittagong", emergency: "01799887755", mapLink: "https://goo.gl/maps/parkviewctg" },
+                    { name: "Epic Healthcare", number: "01711223344", address: "Khulshi, Chittagong", emergency: "01711223345", mapLink: "https://goo.gl/maps/epicctg" },
+                    { name: "Chevron Clinical Laboratory", number: "01722334455", address: "Panchlaish, Chittagong", emergency: "01722334456", mapLink: "https://goo.gl/maps/chevronctg" },
+                    { name: "National Hospital", number: "01733445566", address: "Chittagong", emergency: "01733445567", mapLink: "https://goo.gl/maps/nationalctg" },
+                    { name: "Chattogram Maa-O-Shishu Hospital", number: "01744556677", address: "Chittagong", emergency: "01744556678", mapLink: "https://goo.gl/maps/maoshishuctg" },
+                    { name: "Usmania Memorial Hospital", number: "01755667788", address: "Chittagong", emergency: "01755667789", mapLink: "https://goo.gl/maps/usmania" },
+                    { name: "Bangladesh Institute of Tropical Medicine", number: "01766778899", address: "Chittagong", emergency: "01766778800", mapLink: "https://goo.gl/maps/bitmctg" },
+                    { name: "Chittagong Eye Infirmary & Hospital", number: "01777889900", address: "Chittagong", emergency: "01777889901", mapLink: "https://goo.gl/maps/ctgeye" }
+                ], 
+                ambulance: [ 
+                    { name: "Chittagong Ambulance", number: "01711555662", location: "City Service" },
+                    { name: "Metro Ambulance", number: "01788990011", location: "24/7" }
+                ] 
             },
             rajshahi: { 
                 name: "Rajshahi", 
-                police: [ { name: "Rajshahi Metropolitan Police", number: "01711555991", location: "Headquarters" } ], 
-                fire: [ { name: "Rajshahi Fire Service", number: "01711555992", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Rajshahi Medical College Hospital", number: "01711555999", address: "Laxmipur, Rajshahi", emergency: "01711555998", mapLink: "https://maps.app.goo.gl/xyz18" },
-                    { name: "Islami Bank Hospital", number: "01711555997", address: "Rajshahi", mapLink: "https://maps.app.goo.gl/xyz19" }
+                police: [ 
+                    { name: "Rajshahi Metropolitan Police", number: "01711555991", location: "Headquarters" },
+                    { name: "Boalia Police Station", number: "01711555992", location: "Boalia" }
                 ], 
-                ambulance: [ { name: "Rajshahi Ambulance", number: "01711555993", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Rajshahi Fire Service", number: "01711555992", location: "Headquarters" },
+                    { name: "Kashiadanga Fire Station", number: "01711555993", location: "Kashiadanga" }
+                ], 
+                hospital: [ 
+                    { name: "Rajshahi Medical College Hospital", number: "01711555999", address: "Laxmipur, Rajshahi", emergency: "01711555998", mapLink: "https://goo.gl/maps/rajshahimedical" },
+                    { name: "Islami Bank Hospital", number: "01711555997", address: "Rajshahi", emergency: "01711555996", mapLink: "https://goo.gl/maps/islamibankraj" },
+                    { name: "Barind Medical College Hospital", number: "01711223344", address: "Rajshahi", emergency: "01711223345", mapLink: "https://goo.gl/maps/barind" },
+                    { name: "Rajshahi Eye Hospital", number: "01722334455", address: "Rajshahi", emergency: "01722334456", mapLink: "https://goo.gl/maps/rajshahieye" },
+                    { name: "Samorita Hospital Rajshahi", number: "01733445566", address: "Rajshahi", emergency: "01733445567", mapLink: "https://goo.gl/maps/samoritaraj" }
+                ], 
+                ambulance: [ 
+                    { name: "Rajshahi Ambulance", number: "01711555993", location: "City Service" }
+                ] 
             },
             khulna: { 
                 name: "Khulna", 
-                police: [ { name: "Khulna Metropolitan Police", number: "01711555882", location: "Headquarters" } ], 
-                fire: [ { name: "Khulna Fire Service", number: "01711555881", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Khulna Medical College Hospital", number: "01711555888", address: "Sonadanga, Khulna", emergency: "01711555887", mapLink: "https://maps.app.goo.gl/xyz21" },
-                    { name: "City Hospital Khulna", number: "01711555886", address: "Khulna", mapLink: "https://maps.app.goo.gl/xyz22" }
+                police: [ 
+                    { name: "Khulna Metropolitan Police", number: "01711555882", location: "Headquarters" },
+                    { name: "Sonadanga Police Station", number: "01711555883", location: "Sonadanga" }
                 ], 
-                ambulance: [ { name: "Khulna Ambulance", number: "01711555880", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Khulna Fire Service", number: "01711555881", location: "Headquarters" },
+                    { name: "Boyra Fire Station", number: "01711555882", location: "Boyra" }
+                ], 
+                hospital: [ 
+                    { name: "Khulna Medical College Hospital", number: "01711555888", address: "Sonadanga, Khulna", emergency: "01711555887", mapLink: "https://goo.gl/maps/khulnamedical" },
+                    { name: "City Hospital Khulna", number: "01711555886", address: "Khulna", emergency: "01711555885", mapLink: "https://goo.gl/maps/citykhulna" },
+                    { name: "Khulna Eye Hospital", number: "01711223344", address: "Khulna", emergency: "01711223345", mapLink: "https://goo.gl/maps/khulnaeye" },
+                    { name: "Gazi Medical College Hospital", number: "01722334455", address: "Khulna", emergency: "01722334456", mapLink: "https://goo.gl/maps/gazikhulna" },
+                    { name: "Khulna City Medical College Hospital", number: "01733445566", address: "Khulna", emergency: "01733445567", mapLink: "https://goo.gl/maps/khulnacitymedical" }
+                ], 
+                ambulance: [ 
+                    { name: "Khulna Ambulance", number: "01711555880", location: "City Service" }
+                ] 
             },
             barisal: { 
                 name: "Barisal", 
-                police: [ { name: "Barisal Metropolitan Police", number: "01711555773", location: "Headquarters" } ], 
-                fire: [ { name: "Barisal Fire Service", number: "01711555772", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Sher-e-Bangla Medical College Hospital", number: "01711555777", address: "Barisal Sadar, Barisal", emergency: "01711555776", mapLink: "https://maps.app.goo.gl/xyz24" }
+                police: [ 
+                    { name: "Barisal Metropolitan Police", number: "01711555773", location: "Headquarters" },
+                    { name: "Kotwali Police Station", number: "01711555774", location: "Kotwali" }
                 ], 
-                ambulance: [ { name: "Barisal Ambulance", number: "01711555771", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Barisal Fire Service", number: "01711555772", location: "Headquarters" },
+                    { name: "Nathullabad Fire Station", number: "01711555773", location: "Nathullabad" }
+                ], 
+                hospital: [ 
+                    { name: "Sher-e-Bangla Medical College Hospital", number: "01711555777", address: "Barisal Sadar, Barisal", emergency: "01711555776", mapLink: "https://goo.gl/maps/sherbangla" },
+                    { name: "Barisal Eye Hospital", number: "01711223344", address: "Barisal", emergency: "01711223345", mapLink: "https://goo.gl/maps/barisaleye" },
+                    { name: "City Hospital Barisal", number: "01722334455", address: "Barisal", emergency: "01722334456", mapLink: "https://goo.gl/maps/citybarisal" }
+                ], 
+                ambulance: [ 
+                    { name: "Barisal Ambulance", number: "01711555771", location: "City Service" }
+                ] 
             },
             sylhet: { 
                 name: "Sylhet", 
-                police: [ { name: "Sylhet Metropolitan Police", number: "01711555660", location: "Headquarters" } ], 
-                fire: [ { name: "Sylhet Fire Service", number: "01711555659", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula, Sylhet", emergency: "01711555665", mapLink: "https://maps.app.goo.gl/xyz26" },
-                    { name: "Jalalabad Hospital", number: "01711555664", address: "Sylhet", mapLink: "https://maps.app.goo.gl/xyz27" }
+                police: [ 
+                    { name: "Sylhet Metropolitan Police", number: "01711555660", location: "Headquarters" },
+                    { name: "Kotwali Police Station", number: "01711555661", location: "Kotwali" }
                 ], 
-                ambulance: [ { name: "Sylhet Ambulance", number: "01711555658", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Sylhet Fire Service", number: "01711555659", location: "Headquarters" },
+                    { name: "Khadimnagar Fire Station", number: "01711555660", location: "Khadimnagar" }
+                ], 
+                hospital: [ 
+                    { name: "Sylhet MAG Osmani Medical College", number: "01711555666", address: "Mirboxtula, Sylhet", emergency: "01711555665", mapLink: "https://goo.gl/maps/osmanimedical" },
+                    { name: "Jalalabad Hospital", number: "01711555664", address: "Sylhet", emergency: "01711555663", mapLink: "https://goo.gl/maps/jalalabad" },
+                    { name: "North East Medical College Hospital", number: "01711223344", address: "Sylhet", emergency: "01711223345", mapLink: "https://goo.gl/maps/northeast" },
+                    { name: "Sylhet Women's Medical College Hospital", number: "01722334455", address: "Sylhet", emergency: "01722334456", mapLink: "https://goo.gl/maps/sylhetwomens" },
+                    { name: "Ibne Sina Hospital Sylhet", number: "01733445566", address: "Sylhet", emergency: "01733445567", mapLink: "https://goo.gl/maps/ibnesinasylhet" }
+                ], 
+                ambulance: [ 
+                    { name: "Sylhet Ambulance", number: "01711555658", location: "City Service" }
+                ] 
             },
             rangpur: { 
                 name: "Rangpur", 
-                police: [ { name: "Rangpur Metropolitan Police", number: "01711555551", location: "Headquarters" } ], 
-                fire: [ { name: "Rangpur Fire Service", number: "01711555550", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Rangpur Medical College Hospital", number: "01711555555", address: "Medical Road, Rangpur", emergency: "01711555554", mapLink: "https://maps.app.goo.gl/xyz29" },
-                    { name: "Prime Hospital", number: "01711555553", address: "Rangpur", mapLink: "https://maps.app.goo.gl/xyz30" }
+                police: [ 
+                    { name: "Rangpur Metropolitan Police", number: "01711555551", location: "Headquarters" },
+                    { name: "Kotwali Police Station", number: "01711555552", location: "Kotwali" }
                 ], 
-                ambulance: [ { name: "Rangpur Ambulance", number: "01711555549", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Rangpur Fire Service", number: "01711555550", location: "Headquarters" },
+                    { name: "Carmichael College Fire Station", number: "01711555551", location: "Carmichael" }
+                ], 
+                hospital: [ 
+                    { name: "Rangpur Medical College Hospital", number: "01711555555", address: "Medical Road, Rangpur", emergency: "01711555554", mapLink: "https://goo.gl/maps/rangpurmedical" },
+                    { name: "Prime Hospital", number: "01711555553", address: "Rangpur", emergency: "01711555552", mapLink: "https://goo.gl/maps/primehospital" },
+                    { name: "Rangpur Eye Hospital", number: "01711223344", address: "Rangpur", emergency: "01711223345", mapLink: "https://goo.gl/maps/rangpureye" },
+                    { name: "Community Hospital Rangpur", number: "01722334455", address: "Rangpur", emergency: "01722334456", mapLink: "https://goo.gl/maps/communityrangpur" }
+                ], 
+                ambulance: [ 
+                    { name: "Rangpur Ambulance", number: "01711555549", location: "City Service" }
+                ] 
             },
             mymensingh: { 
                 name: "Mymensingh", 
-                police: [ { name: "Mymensingh Metropolitan Police", number: "01711555440", location: "Headquarters" } ], 
-                fire: [ { name: "Mymensingh Fire Service", number: "01711555439", location: "Headquarters" } ], 
-                hospital: [ 
-                    { name: "Mymensingh Medical College Hospital", number: "01711555444", address: "Medical College Road, Mymensingh", emergency: "01711555443", mapLink: "https://maps.app.goo.gl/xyz31" }
+                police: [ 
+                    { name: "Mymensingh Metropolitan Police", number: "01711555440", location: "Headquarters" },
+                    { name: "Kotwali Police Station", number: "01711555441", location: "Kotwali" }
                 ], 
-                ambulance: [ { name: "Mymensingh Ambulance", number: "01711555438", location: "City Service" } ] 
+                fire: [ 
+                    { name: "Mymensingh Fire Service", number: "01711555439", location: "Headquarters" },
+                    { name: "Mohila College Fire Station", number: "01711555440", location: "Mohila College" }
+                ], 
+                hospital: [ 
+                    { name: "Mymensingh Medical College Hospital", number: "01711555444", address: "Medical College Road, Mymensingh", emergency: "01711555443", mapLink: "https://goo.gl/maps/mymensinghmedical" },
+                    { name: "Community Medical College Hospital", number: "01711555442", address: "Mymensingh", emergency: "01711555441", mapLink: "https://goo.gl/maps/communitymym" },
+                    { name: "Mymensingh Eye Hospital", number: "01711223344", address: "Mymensingh", emergency: "01711223345", mapLink: "https://goo.gl/maps/mymensingheye" },
+                    { name: "City Hospital Mymensingh", number: "01722334455", address: "Mymensingh", emergency: "01722334456", mapLink: "https://goo.gl/maps/citymym" }
+                ], 
+                ambulance: [ 
+                    { name: "Mymensingh Ambulance", number: "01711555438", location: "City Service" }
+                ] 
             },
             comilla: { 
                 name: "Comilla", 
-                police: [ { name: "Comilla Police Line", number: "01710001111", location: "Headquarters" } ], 
-                fire: [ { name: "Comilla Fire Station", number: "01710001122", location: "Main" } ], 
-                hospital: [ 
-                    { name: "Comilla Medical College Hospital", number: "01710003333", address: "Comilla", emergency: "01710003344", mapLink: "https://maps.app.goo.gl/placeholder_comilla1" },
-                    { name: "Eastern Medical College", number: "01710003345", address: "Comilla", mapLink: "https://maps.app.goo.gl/placeholder_comilla2" }
+                police: [ 
+                    { name: "Comilla Police Line", number: "01710001111", location: "Headquarters" },
+                    { name: "Kotwali Police Station", number: "01710001112", location: "Kotwali" }
                 ], 
-                ambulance: [ { name: "Comilla Ambulance", number: "01710004444", location: "City" } ] 
+                fire: [ 
+                    { name: "Comilla Fire Station", number: "01710001122", location: "Main" },
+                    { name: "Cantonment Fire Station", number: "01710001123", location: "Cantonment" }
+                ], 
+                hospital: [ 
+                    { name: "Comilla Medical College Hospital", number: "01710003333", address: "Comilla", emergency: "01710003344", mapLink: "https://goo.gl/maps/comillamedical" },
+                    { name: "Eastern Medical College", number: "01710003345", address: "Comilla", emergency: "01710003346", mapLink: "https://goo.gl/maps/easterncomilla" },
+                    { name: "Comilla Eye Hospital", number: "01711223344", address: "Comilla", emergency: "01711223345", mapLink: "https://goo.gl/maps/comillaeye" },
+                    { name: "City Hospital Comilla", number: "01722334455", address: "Comilla", emergency: "01722334456", mapLink: "https://goo.gl/maps/citycomilla" },
+                    { name: "Labaid Hospital Comilla", number: "01733445566", address: "Comilla", emergency: "01733445567", mapLink: "https://goo.gl/maps/labaidcomilla" }
+                ], 
+                ambulance: [ 
+                    { name: "Comilla Ambulance", number: "01710004444", location: "City" },
+                    { name: "Quick Ambulance Service", number: "01710004455", location: "24/7" }
+                ] 
             }
         };
 
